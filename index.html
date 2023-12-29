@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Hello World</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+
+</head>
+<body>
+
+    <h1>Vagas</h1><br>
+    <select id="meu_select" name="selecionado">
+        {% for item in filtered_options %}
+        <option>{{ item }}</option>
+        {% endfor %}
+    </select>
+
+    
+
+<!-- 
+    <script>
+        // Supondo que você tenha uma variável chamada selecionado
+        var selecionado = '';
+
+        // Adicione um ouvinte de eventos para detectar a alteração na seleção
+        document.getElementById("meu_select").addEventListener("change", function() {
+            // Atualize a variável com base na opção selecionada
+            selecionado = this.value;
+            
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({selecionado: selecionado})
+            });
+        });
+    </script>
+-->
+
+    <script>
+        document.getElementById("meu_select").addEventListener("change", function() {
+            var selecionado = this.value;
+
+            //document.getElementById("valor_selecionado").innerText = selecionado;  
+            // Adicione esta linha
+
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({selecionado: selecionado})
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                document.querySelector('output').innerHTML = data;
+            });
+        });
+    </script>
+    <br>
+
+    <p id="output"></p>
+
+    <br><br>
+    <output>{{ html_output }}</output>
+
+   
+</body>
+</html>
