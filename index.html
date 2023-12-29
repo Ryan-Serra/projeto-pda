@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +8,27 @@
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
 
+    <!--
+        Select2 um tipo de select com campo de busca!
+    -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
 </head>
 <body>
 
     <h1>Vagas</h1><br>
-    <select id="meu_select" name="selecionado">
+    <label>Empresa: </label>
+    <select  id="meu_select" name="selecionado">
+        <option>Não Selecionado</option>
         {% for item in filtered_options %}
         <option>{{ item }}</option>
         {% endfor %}
     </select>
 
-    
-
-<!-- 
     <script>
-        // Supondo que você tenha uma variável chamada selecionado
-        var selecionado = '';
-
-        // Adicione um ouvinte de eventos para detectar a alteração na seleção
-        document.getElementById("meu_select").addEventListener("change", function() {
-            // Atualize a variável com base na opção selecionada
-            selecionado = this.value;
-            
-            fetch('/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({selecionado: selecionado})
-            });
-        });
-    </script>
--->
-
-    <script>
-        document.getElementById("meu_select").addEventListener("change", function() {
-            var selecionado = this.value;
-
-            //document.getElementById("valor_selecionado").innerText = selecionado;  
-            // Adicione esta linha
-
+        // Função para atualizar o dataframe
+        function atualizarDataframe(selecionado) {
             fetch('/', {
                 method: 'POST',
                 headers: {
@@ -59,14 +40,26 @@
             }).then(function(data) {
                 document.querySelector('output').innerHTML = data;
             });
+        }
+
+        // Atualizar o dataframe quando a página é carregada
+        document.addEventListener('DOMContentLoaded', function() {
+            atualizarDataframe('Não Selecionado');
+        });
+
+        // Atualizar o dataframe quando o valor do select muda
+        document.getElementById("meu_select").addEventListener("change", function() {
+            var selecionado = this.value;
+            atualizarDataframe(selecionado);
         });
     </script>
+
     <br>
 
     <p id="output"></p>
 
     <br><br>
-    <output>{{ html_output }}</output>
+    <output>{{ output }}</output>
 
    
 </body>

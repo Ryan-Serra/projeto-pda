@@ -29,24 +29,19 @@ filtered_json = json.dumps(filtered_options)
 
 app = Flask(__name__)
 
-selecionado = ''  # Variável a ser atualizada dinamicamente
+selecionado = 'Não Selecionado'  # Variável a ser atualizada dinamicamente
 
 def filtro_empresas(selecionado):
     
     df_filtered = df_base2.copy()
 
-    if selecionado:
+    if selecionado == 'Não Selecionado':
+        return df_filtered
+    else:
         condition_empresa = df_filtered['Empresa'].isin([selecionado]) if selecionado else True 
         df_filtered = df_filtered[condition_empresa]
         
     return df_filtered
-
-def mostra_ai(selecionado):
-    
-    df_filtered = filtro_empresas(selecionado)
-
-    return df_filtered
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -60,8 +55,9 @@ def index():
         html_output = filtro_empresas(selecionado)
 
         return html_output.to_html()
-    else:
+    else:        
         return render_template("index.html", filtered_json=filtered_json, filtered_options=filtered_options)
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
