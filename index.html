@@ -25,6 +25,14 @@
         <option>{{ item }}</option>
         {% endfor %}
     </select>
+    <br><br>
+
+    <form action="/uploader" method="POST"
+    enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <input type="submit"/>
+    </form>
+
 
     <script>
         // Função para atualizar o dataframe
