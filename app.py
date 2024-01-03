@@ -3,34 +3,35 @@ import pandas as pd
 import json
 import os
 from werkzeug.utils import secure_filename
+import database_2
+
+#import database
 
 # PARTE APENAS INICIAL - O ENVIO DE PLANILHA SERA FEITO POR MEIO DE BOTOES
 
-base = pd.read_excel("Projeto Mapeamento dos processos seletivos.xlsx")
+def dataframes(table_name='vagas'):
 
-# colocando a daframe com as colunas corretas
-df_base = pd.DataFrame(base)
-#Definindo a linha 0 como os novos nomes das colunas
-df_base.columns = df_base.iloc[0]
-# Excluindo a linha 0, que agora contém os nomes antigos das colunas
-df_base = df_base[1:]
-# Resetando os índices
-df_base.reset_index(drop=True, inplace=True)
+    df_base = database_2.selecionar_bd(table_name)
 
-df_base2 = df_base.drop(['Início das inscrições', 'Final das inscrições', 'Etapas', 'Considerado Diferenciais', 'Quantas vagas abriram?',   
-       'Salário informado (se for variável, colocar a média)',
-       'Média salarial do Glassdoor (colocar se a empresa não informar)', 'Tem APRENDA COM QUEM FEZ dentro do PDA?',       
-       'Informações extras'], axis=1)
+    result = {}
 
+    if df_base.empty:
+        result['filtered_options'] = []
+        result['df_base2'] = df_base
+    else:
+        df_base2 = df_base.drop(['Etapas', 'Considerado Diferenciais', 'Quantas vagas abriram?',   
+            'Salário informado (se for variável, colocar a média)',
+            'Média salarial do Glassdoor (colocar se a empresa não informar)', 'Tem APRENDA COM QUEM FEZ dentro do PDA?',       
+            'Informações extras'], axis=1)
 
-lista1 = df_base2['Empresa'].unique()
+        filtered_options = df_base2['Empresa'].unique().tolist()
 
-filtered_options = [
-        option for option in lista1
-    ]
-filtered_json = json.dumps(filtered_options)
+        result['filtered_options'] = filtered_options
+        result['df_base2'] = df_base2
+    
+    return result
 
-# AQUI ACABA A PARTE INIVIAL DA PLANILHA 
+    
 
 
 app = Flask(__name__)
@@ -38,17 +39,30 @@ app = Flask(__name__)
 selecionado = 'Não Selecionado'  # Variável a ser atualizada dinamicamente
 
 # FUNÇÃO DE FILTRO DE EMPRESA CONFORME A TABELA/PLANILHA NO BANCO DE DADOS
-def filtro_empresas(selecionado):
-    
+def filtro_empresas(selecionado='Não selecionado', table_name='vagas'):
+
+    #parte nova
+    result = dataframes(table_name)
+    filtered_options = result['filtered_options']
+
+    #if result['df_base2'].empty or result['df_base2'] is None:
+    #    df_filtered = result['df_base2']
+    #    return df_filtered, filtered_options
+    #else:
+    df_base2 = result['df_base2']
     df_filtered = df_base2.copy()
 
-    if selecionado == 'Não Selecionado':
-        return df_filtered
+    if df_base2.empty:
+        filtered_options = []
+        return df_filtered, filtered_options
     else:
-        condition_empresa = df_filtered['Empresa'].isin([selecionado]) if selecionado else True 
-        df_filtered = df_filtered[condition_empresa]
+        if selecionado == 'Não Selecionado':
+            return df_filtered, filtered_options
+        else:
+            condition_empresa = df_filtered['Empresa'].isin([selecionado]) if selecionado else True 
+            df_filtered = df_filtered[condition_empresa]
         
-    return df_filtered
+    return df_filtered, filtered_options
 
 
 # CHECAR ENVIO DE ARQUIVO .XLSX | EXTENSÃO DE PLANILHA
@@ -70,29 +84,52 @@ def upload_file():
                 os.makedirs(path)
             f.save(os.path.join(path, secure_filename(f.filename)))
             
+            # Executa a junção da planilha assim que for salva!
+            #planilha = f"saves/{f.filename}"
+            #database.adicionar_excel(planilha)
+
             return redirect(url_for('index'))
+            # podia mandar um pop-up confirmando o envio   
         else:
-            return 'Arquivo no formato incorreto!'
+            # está levando para uma pagina mas quero que retorne para pagina inicial!
+            # ou mande só um pop-up
+            return 'Arquivo não selecionado!'
     else:
         return 'Nenhum arquivo foi enviado', 400
 
 
+@app.route('/get_options', methods=['POST'])
+def get_options():
+    data = request.get_json()
+    table_name = data.get('table_name')
+
+    df_filtered, filtered_options = filtro_empresas(table_name)
+
+    return jsonify(filtered_options)
+
 #PAGINA INICIAL ONDE MOSTRA A PLANILHA PODENDO SER FILTRADA, PERMITINDO ENVIO DE ARQUIVOS
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    global filtered_options
     global selecionado
-    
+
+
     if request.method == "POST":
-        
+         
         data = request.get_json()
         selecionado = data.get('selecionado')
-        
-        html_output = filtro_empresas(selecionado)
-
+        table_name = data.get('table_name')
+        df_filtered, filtered_options = filtro_empresas(selecionado, table_name)
+        html_output = df_filtered
+                
         return html_output.to_html() 
-    else:        
-        return render_template("index.html", filtered_json=filtered_json, filtered_options=filtered_options)
-
+    else:   
+        # Adicione aqui o código para criar o dataframe quando a página for carregada
+        df_filtered, filtered_options = filtro_empresas(selecionado)
+        html_output = df_filtered
+        output = html_output.to_html()
+        
+        return render_template("index.html", output=output) 
 
 #caminho para testes, AINDA NÃO FINALIZADO!
 if __name__ == "__main__":
