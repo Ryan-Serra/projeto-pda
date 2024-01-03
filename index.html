@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Hello World</title>
+    <title>PDA FLASK</title>
 
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
@@ -19,11 +19,11 @@
 
     <h1>Vagas</h1><br>
     <label>Empresa: </label>
-    <select  id="meu_select" name="selecionado">
-        <option>Não Selecionado</option>
-        {% for item in filtered_options %}
-        <option>{{ item }}</option>
-        {% endfor %}
+    <select  id="meu_select" name="selecionado"></select>
+
+    <select id="table_name" name="table_name">
+        <option value="vagas">Vagas Abertas</option>
+        <option value="vagas_fechadas">Vagas Fechadas</option>
     </select>
     <br><br>
 
@@ -34,15 +34,20 @@
     </form>
 
 
+    <p></p> 
+
     <script>
+
+        // DATAFRAME //
+
         // Função para atualizar o dataframe
-        function atualizarDataframe(selecionado) {
+        function atualizarDataframe(selecionado, table_name) {
             fetch('/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({selecionado: selecionado})
+                body: JSON.stringify({selecionado: selecionado, table_name: table_name})
             }).then(function(response) {
                 return response.text();
             }).then(function(data) {
@@ -52,22 +57,81 @@
 
         // Atualizar o dataframe quando a página é carregada
         document.addEventListener('DOMContentLoaded', function() {
-            atualizarDataframe('Não Selecionado');
+            var table_name = document.getElementById("table_name").value;
+            atualizarDataframe('Não Selecionado', table_name);
         });
 
         // Atualizar o dataframe quando o valor do select muda
         document.getElementById("meu_select").addEventListener("change", function() {
             var selecionado = this.value;
-            atualizarDataframe(selecionado);
+            var table_name = document.getElementById("table_name").value;
+            atualizarDataframe(selecionado, table_name);
         });
+        
+        document.getElementById("table_name").addEventListener("change", function() {
+            var table_name = this.value;
+            var selecionado = document.getElementById("meu_select").value;
+            atualizarDataframe(selecionado, table_name);
+        })
+
+        // DATAFRAME //
+
+        // SELECT //
+
+        function atualizarOpcoes(table_name) {
+            fetch('/get_options', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({table_name: table_name})
+            }) 
+            .then(response => response.json())
+            .then(options => {
+                var select = document.getElementById('meu_select');
+                select.innerHTML = '';
+            
+                // Adicionar a opção 'Não selecionado'
+                var defaultOption = document.createElement("option");
+                defaultOption.text = 'Não Selecionado';
+                select.add(defaultOption);
+
+                // Adicionar novas opções
+                for (var i = 0; i < options.length; i++) {
+                    var option = document.createElement("option");
+                    option.text = options[i];
+                    select.add(option);
+                }
+                
+            });
+        };
+        
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var table_name = document.getElementById("table_name").value;
+            atualizarOpcoes(table_name)
+        });
+
+        document.getElementById("table_name").addEventListener("change", function() {
+            var table_name = this.value;
+            var selecionado = document.getElementById("meu_select").value;
+
+            // Resetar o valor do select 'meu_select'
+
+            //atualizarDataframe(selecionado, table_name);
+
+            atualizarOpcoes(table_name);
+        })
+
+
     </script>
 
     <br>
 
     <p id="output"></p>
 
-    <br><br>
-    <output>{{ output }}</output>
+    <br>
+    <output>{{ output | safe }}</output>
 
    
 </body>
