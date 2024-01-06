@@ -107,6 +107,19 @@ def get_options():
 
     return jsonify(filtered_options)
 
+
+#Função para retornar apenas o dataframe original
+@app.route('/get_dataframe', methods=['POST'])
+def get_dataframe():
+
+    data = request.json()
+    table_name = data.get('table_name')
+
+    df = dataframes(table_name)
+
+    return df
+
+
 #PAGINA INICIAL ONDE MOSTRA A PLANILHA PODENDO SER FILTRADA, PERMITINDO ENVIO DE ARQUIVOS
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -128,6 +141,9 @@ def index():
         df_filtered, filtered_options = filtro_empresas(selecionado)
         html_output = df_filtered
         output = html_output.to_html()
+
+        #Retorna o dataframe original
+        df = dataframes()
         
         return render_template("index.html", output=output) 
 
