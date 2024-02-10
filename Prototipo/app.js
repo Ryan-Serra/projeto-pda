@@ -1,0 +1,1 @@
+ var inputBusca= document.querySelector( "#busca" );

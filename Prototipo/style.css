@@ -1,0 +1,21 @@
+:root{
+    --corVerde:#6DEE9C ;
+    --cor1:#121117 ;
+    --cor2:#27272A ;
+    --cor3:#434343;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: var(--corVerde) ;
+}
+header h1{
+   text-align: center;
+}
+.capa_ps{
+    border: 2px solid black;
+    margin: 5px;
+    width: auto;
+}
