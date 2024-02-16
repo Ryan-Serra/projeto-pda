@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 :root{
+    --font: "Bebas Neue", sans-serif;
     --corVerde:#6DEE9C ;
     --cor1:#121117 ;
     --cor2:#27272A ;
@@ -12,10 +14,31 @@ header{
     background-color: var(--corVerde) ;
 }
 header h1{
+   font-family: var(--font);
    text-align: center;
+   color: white;
+   padding: 20px;
 }
-.capa_ps{
+.Requisitos,.capa_ps{
     border: 2px solid black;
     margin: 5px;
     width: auto;
+}
+.capa_ps{
+    width: 350px;
+    border-radius: 5px;
+}
+.Requisitos{
+    display: none;
+    width: 450px;
+    border-radius: 5px;
+}
+#filtros{
+    border: 2px solid black;
+    margin: 5px;
+    width: 200px;
+    border-radius: 5px ;
+}
+#Container{
+    display:flex
 }
