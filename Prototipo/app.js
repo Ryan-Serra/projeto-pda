@@ -12,20 +12,20 @@ var label_Localidade= document.querySelectorAll( 'label[for="Estados"]' )
 var label_Empresas= document.querySelectorAll( "label[for='NomesEmpresas']" );
 var capa_ps=document.querySelectorAll('.capa_ps');
 var requisito_ps= document.querySelectorAll( '.Requisitos' );
-var Capa_Localidade=document.querySelectorAll('.capa Localidade');
-var Capa_Empresa=document.querySelectorAll('.capa Empresa');
-var Capa_ModeloTrabalho=document.querySelectorAll('.capa modelotrabalho');
+var Localidade=document.querySelectorAll('.Localidade');
+var Empresa=document.querySelectorAll('.Empresa');
+var ModeloTrabalho=document.querySelectorAll('.modelotrabalho');
 var procura= document.querySelector('#busca').value
-var Localidade=''
-var vet_localidade=''
-console.log(Capa_Localidade[0].textContent)
+console.log(Localidade[0].innerHTML);
+
 busca.addEventListener('enter', function(){
-    if(Capa_Localidade.includes(procura))
+    if(Localidade.includes(procura))
         console.log ('achou na localidade');
 });
 for(let i=0; i < capa_ps.length; i++ ){
-    capa_ps[i].addEventListener( 'click', function(){ 
-         requisito_ps[i].style.display='block'
+    capa_ps[i].addEventListener('click',function(){
+        requisito_ps[i].style.display='block';
+        console.log("funcionou")
     });
 }
 
