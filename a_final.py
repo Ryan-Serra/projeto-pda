@@ -7,10 +7,10 @@ from werkzeug.utils import secure_filename
 from convert_df import dataframes
 
 
-hj = date.today()
+
 # import database
 
-# PARTE APENAS INICIAL - O ENVIO DE PLANILHA SERA FEITO POR MEIO DE BOTOES
+# IMPORTAÇÃO DA PLANILHA 
 df = pd.read_excel('./Vagas.xlsx')
 
 
@@ -20,7 +20,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
+    
     df_base = dataframes()
     
     return render_template('index.html', data=df_base.to_json(orient='records'))
