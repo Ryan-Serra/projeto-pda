@@ -68,7 +68,7 @@ def dataframes():
     # inplace=True -> substitui no proprio dataframe
     df_base.drop('sort', axis=1, inplace=True)
 
-    df_base.to_excel('Vagas.xlsx', index=False)
+    df_base.to_excel('./output/Vagas.xlsx', index=False)
 
     return df_base
 
