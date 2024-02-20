@@ -1,7 +1,11 @@
-
+// Seletor corrigido para os checkboxes do Modelo de Trabalho
+var Filtro_ModeloTrabalho = document.querySelectorAll("input[type='checkbox'][name='modetrabalho']");
 //  Eventos de click nos checkboxes
 var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 // Seletor corrigido para os checkboxes de Localidade
+var Filtro_Localidade = document.querySelectorAll("input[type='checkbox'][name='filtroEstado']");
+// Seletor corrigido para os checkboxes de Empresa
+var Filtro_Empresas = document.querySelectorAll("input[type='checkbox'][name='Nome_Empresas']");
 // capa dos processos seletivos
 var capa_ps=document.querySelectorAll('.capa_ps');
 // div dos requisitos do processos seletivos
@@ -72,7 +76,8 @@ for(let i=0; i<Empresa.length;i++){
 
 for(let i=0; i < capa_ps.length; i++ ){
     capa_ps[i].addEventListener('click',function(){
-        requisito_ps[i].style.display='block';
+       if(requisito_ps[i].style.display=='block') requisito_ps[i].style.display='none'
+       else requisito_ps[i].style.display='block';
         
     });
 }
