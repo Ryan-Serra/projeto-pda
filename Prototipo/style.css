@@ -5,20 +5,56 @@
     --cor1:#121117 ;
     --cor2:#27272A ;
     --cor3:#434343;
+    --cor4: #D9D9D9;
 }
 *{
     margin: 0;
     padding: 0;
 }
-header{
+
+/* body {
+  background-color: var(--cor1);
+} */
+
+.nav__green{
     background-color: var(--corVerde) ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 110px;
 }
-header h1{
+
+.nav__green .texto__principal:nth-child(1){
    font-family: var(--font);
    text-align: center;
    color: white;
-   padding: 20px;
+   font-size: 40px;
+   width: 10px;
+   position: absolute;
+   font-size: 40px;
+   margin-left: 30px;
+   text-shadow: 0 3px 7px var(--cor1);
 }
+
+.nav__green .texto__principal:nth-child(2){
+    font-family: var(--font);
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    width: 10px;
+    margin-top: 35px;
+    font-size: 66px;
+    letter-spacing: 5px;
+    text-shadow: 0 3px 7px var(--cor1)
+}
+
+#ContainerCapa{
+    display: flex;
+    flex-wrap: wrap;
+    width: 55%;
+    height: 10px;
+}
+
 .Requisitos,.capa_ps{
     border: 2px solid black;
     margin: 5px;
@@ -26,19 +62,60 @@ header h1{
 }
 .capa_ps{
     width: 350px;
+    height: 100px;
     border-radius: 5px;
+    border: none;
+    background-color: var(--cor4);
+    padding: 5px 30px 5px 30px;
+    margin: 20px 30px 10px 30px;
+    font-family: var(--font);
 }
+
+.container_busca{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#busca {
+    font-family: var(--font);
+    padding: 10px;
+    border-radius: 46px;
+    width: 900px;
+    height: 70px;
+    border: none;
+    background-color: var(--cor4);
+    font-size: 30px;
+    background-image: url("https://f55f12fe8ec0186f.cdn.gocache.net/assets/2022/icon-search-c60be760ea96bed84b8b98d6bb4db16883fddf5fb962fa56ba4a84896b2f1fc0.svg");
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+
+
+input::placeholder{
+    text-align: center;
+    opacity: 8%;
+    color: var(--cor1);
+}
+
 .Requisitos{
     display: none;
     width: 450px;
     border-radius: 5px;
 }
+
+
 #filtros{
     border: 2px solid black;
     margin: 5px;
     width: 200px;
-    border-radius: 5px ;
+    border-radius: 5px;
 }
+
 #Container{
-    display:flex
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
 }
+
