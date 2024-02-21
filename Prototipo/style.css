@@ -61,14 +61,14 @@
     width: auto;
 }
 .capa_ps{
-    width: 350px;
+    width: 400px;
     height: 100px;
     border-radius: 5px;
     border: none;
     background-color: var(--cor4);
     padding: 5px 30px 5px 30px;
     margin: 20px 30px 10px 30px;
-    font-family: var(--font);
+  
 }
 
 .container_busca{
@@ -92,7 +92,7 @@
 }
 
 
-
+ 
 input::placeholder{
     text-align: center;
     opacity: 8%;
@@ -116,6 +116,67 @@ input::placeholder{
 #Container{
     display:flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 2%;
 }
+
+.Texto__vagas--container {
+    font-family: var(--font);
+    letter-spacing: 2px;
+    margin-top: 5px;   
+}
+
+.Localidade {
+    font-family: var(--font);
+    background-color: var(--cor3);
+    color: var(--cor4);
+    border-radius: 10px;
+    border: none;
+    display: inline;
+    align-items: center;
+    padding: 1px 15px 1px 15px;
+    font-size: 12px;
+}
+
+.modelotrabalho {
+    font-family: var(--font);
+    background-color: var(--corVerde);
+    color: var(--cor1);
+    border-radius: 10px;
+    border: none;
+    display: inline;
+    align-items: center;
+    padding: 1px 20px 1px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    position: relative;
+    left: 10px;
+}
+
+.Empresa{
+    font-family: var(--font);
+    color: var(--cor1);
+    font-size: 15px;
+    position: relative;
+    top: 20%;
+    left: 20%;
+}
+
+.btn_inscrever {
+    position: relative;
+    left: 70%;
+    font-family: var(--font);
+    background-color: var(--cor3);
+    color: var(--cor4);
+    padding: 2px 20px 2px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn_inscrever, a {
+    text-decoration: none;
+    color: var(--cor4);
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
 
