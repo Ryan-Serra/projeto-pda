@@ -12,9 +12,9 @@
     padding: 0;
 }
 
-/* body {
+body {
   background-color: var(--cor1);
-} */
+}
 
 .nav__green{
     background-color: var(--corVerde) ;
@@ -68,7 +68,7 @@
     background-color: var(--cor4);
     padding: 5px 30px 5px 30px;
     margin: 20px 30px 10px 30px;
-  
+    background-repeat: no-repeat;
 }
 
 .container_busca{
@@ -91,7 +91,6 @@
     background-position: 95%;
 }
 
-
  
 input::placeholder{
     text-align: center;
@@ -107,10 +106,14 @@ input::placeholder{
 
 
 #filtros{
-    border: 2px solid black;
     margin: 5px;
     width: 200px;
     border-radius: 5px;
+    position: relative;
+    left: 11%;
+    min-width: 430px;
+    object-fit: cover;
+    background-color: var(--corVerde);
 }
 
 #Container{
@@ -163,10 +166,10 @@ input::placeholder{
 
 .btn_inscrever {
     position: relative;
-    left: 70%;
+    left: 55%;
+    bottom: 30px;
     font-family: var(--font);
     background-color: var(--cor3);
-    color: var(--cor4);
     padding: 2px 20px 2px 20px;
     border-radius: 5px;
     border: none;
@@ -180,3 +183,11 @@ input::placeholder{
 }
 
 
+.imagem_empresa {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: var(--cor4) solid;
+    position: relative;
+    bottom: 12px;
+}
