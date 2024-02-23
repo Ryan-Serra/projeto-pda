@@ -10,6 +10,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
     display: flex;
     justify-content: center;
     height: 110px;
+    background-size: cover;
 }
 
 .nav__green .texto__principal:nth-child(1){
@@ -53,6 +55,8 @@ body {
     flex-wrap: wrap;
     width: 55%;
     height: 10px;
+    position: relative;
+    left: 10%;
 }
 
 .Requisitos,.capa_ps{
@@ -61,8 +65,8 @@ body {
     width: auto;
 }
 .capa_ps{
-    width: 400px;
-    height: 100px;
+    width: 460px;
+    height: 110px;
     border-radius: 5px;
     border: none;
     background-color: var(--cor4);
@@ -106,14 +110,16 @@ input::placeholder{
 
 
 #filtros{
-    margin: 5px;
-    width: 200px;
-    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 590px;
+    border-radius: 5px 0 0 5px;
     position: relative;
-    left: 11%;
-    min-width: 430px;
-    object-fit: cover;
+    left: 7%;
     background-color: var(--corVerde);
+    background-size: cover;
 }
 
 #Container{
@@ -191,3 +197,20 @@ input::placeholder{
     position: relative;
     bottom: 12px;
 }
+
+.Texto_filtro--container {
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 40px;
+    text-shadow: 0 0 0.2px var(--cor1)
+}
+
+.Texto_principal--checbox {
+    font-family: var(--font);
+    font-size: 30px;
+    text-shadow: 0 0 0.2px var(--cor1);
+    margin: 20px 0 10px 10%;
+}
+
