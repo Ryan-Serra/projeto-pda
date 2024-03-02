@@ -1,4 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+@media(max-width: 760px) {
+     
+        
+   
+    .capa_ps .Texto__vagas--container{
+        font-size: 12px;
+        margin-top: 1px;
+    }
+   .capa_ps .Localidade {
+        padding: 1px 10px 1px 10px;
+        border-radius: 10px;
+        font-size: 7px;
+    }
+    .capa_ps .modelotrabalho{
+        padding: 1px 10px 1px 10px;
+        font-size: 7px;
+    }
+    .capa_ps .Empresa{
+        font-size: 8px;
+    }
+    .capa_ps .btn_inscrever{
+        padding: 2px 20px 2px 15px;
+        left: 25%;
+        bottom: 2%
+    }
+    .capa_ps .btn_inscrever a{
+        font-size: 12px;
+    }
+    .capa_ps .imagem_empresa{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: var(--cor4) solid;
+    position: relative;
+    bottom: 3px;
+    right: 4px;
+
+    }
+}
+@media  (max-width: 1024px){
+    header{
+        width: 100%;
+        text-align: center;
+    }
+    .nav__green .texto__principal:nth-child(2){
+        position: relative;
+        right: 10%;
+    }
+    .nav__green .texto__principal:nth-child(1){
+        position: relative;
+        right: 50%;
+    }
+
+    #Container{
+       max-width: 800px;
+    }
+  #Container  #filtros{
+        position: relative;
+        max-width: 300px;
+        left:32%;
+             
+    }
+    #container_busca{
+        max-width: 100%;
+    }
+    .capa_ps{
+        max-width: 500px;
+    }
+    
+}
 :root{
     --font: "Bebas Neue", sans-serif;
     --corVerde:#6DEE9C ;
@@ -57,6 +129,7 @@ body {
     height: 10px;
     position: relative;
     left: 10%;
+   
 }
 
 .Requisitos,.capa_ps{
@@ -73,6 +146,7 @@ body {
     padding: 5px 30px 5px 30px;
     margin: 20px 30px 10px 30px;
     background-repeat: no-repeat;
+   
 }
 
 .container_busca{
@@ -110,10 +184,8 @@ input::placeholder{
 
 
 #filtros{
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+    
+    margin: 0 auto 0 auto;
     width: 590px;
     border-radius: 5px 0 0 5px;
     position: relative;
@@ -172,7 +244,7 @@ input::placeholder{
 
 .btn_inscrever {
     position: relative;
-    left: 55%;
+    left: 50%;
     bottom: 30px;
     font-family: var(--font);
     background-color: var(--cor3);
@@ -213,4 +285,3 @@ input::placeholder{
     text-shadow: 0 0 0.2px var(--cor1);
     margin: 20px 0 10px 10%;
 }
-
