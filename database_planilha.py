@@ -46,10 +46,12 @@ def salva_df(df_base):
     df_base.to_excel('./output/Vagas.xlsx', index=False)
 
 
-def main():
+def main(arquivo=None):
 
     # Criar forma de receber planilha!
-
+    if arquivo == None:
+        return ""
+        
     df2 = pega_arquivo(arquivo=arquivo)
     
     #checa se o diretório não existe (for "Verdade" ele cria o diretório. "Falso" continua o código)
