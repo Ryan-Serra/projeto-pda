@@ -4,7 +4,7 @@ import os
 # FASE DE TESTES
 
 # Deixe APENAS 1 VARIAVEL ARQUIVO
-arquivo = ("./Projeto Mapeamento dos processos seletivos.xlsx")
+#arquivo = ("./Projeto Mapeamento dos processos seletivos.xlsx")
 #arquivo = ("./Mapeamento dos processos seletivos 2.xlsx")
 
 # recebe do html um arquivo excel ou csv
