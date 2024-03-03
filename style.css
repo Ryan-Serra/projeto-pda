@@ -1,6 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+@media(max-width: 476px){
 
+    #Container{
+        width: 80%;
+    } 
+    #Container #ContainerCapa .capa_ps{
+        width: 460px;
+    }
+   #Container .capa_ps .Texto__vagas--container{
+        font-size: 10px;
+        margin-top: 1px;
+    }
+   #Container .capa_ps .Localidade {
+        padding: 1px 10px 1px 10px;
+        border-radius: 10px;
+        font-size: 8px;
+    }
+   #Container .capa_ps .modelotrabalho{
+        padding: 1px 10px 1px 10px;
+        font-size: 8px;
+    }
+    #Container .capa_ps .Empresa{
+        font-size: 8px;
+    }
+  #Container  .capa_ps .imagem_empresa{
+        width: 25px;
+        height: 25px;
+        border: var(--cor4) solid;
+        position: relative;
+        bottom: 3px;
+        left: -25%;
+    
+        }
+   #Container .capa_ps .btn_inscrever{
+        padding: 1px 12px 1px 12px;
+        left: 45%;
+        bottom: 40%;
+    }
+    
+    #Container .capa_ps .btn_inscrever a{
+        font-size: 8px;
+    }
+    .container_busca #busca {
+        width: 60%;
+        height: 50px;
+      }
+
+
+}
 @media(max-width: 768px) {
     #Container{
         width: 80%;
@@ -17,6 +65,7 @@
    }
    .container_busca #busca {
      width: 60%;
+     height: 50px;
    }
     .capa_ps .Texto__vagas--container{
         font-size: 12px;
@@ -45,7 +94,6 @@
     .capa_ps .imagem_empresa{
     width: 30px;
     height: 30px;
-    border-radius: 100px;
     border: var(--cor4) solid;
     position: relative;
     bottom: 3px;
@@ -54,7 +102,6 @@
     }
    #Container #filtros{
         position:relative;
-        background-color: blue;
         width: 32%;
         left:30%
         
@@ -91,7 +138,7 @@
     #Container{
        max-width: 800px;
     }
-  #Container  #filtros{
+     #Container  #filtros{
         position: relative;
         width: 31%;
         left:35%;
@@ -100,9 +147,341 @@
     #container_busca{
         max-width: 100%;
     }
-    .capa_ps{
-        max-width: 500px;
+  
+    #filtros .Texto_filtro--container {
+        font-size:  40px;
     }
+    #filtros .Texto_principal--checbox{
+        font-size: 25px;
+    }
+    #filtros label{
+        font-size: 16px;
+    }
+    
+}
+:root{
+    --font: "Bebas Neue", sans-serif;
+    --corVerde:#6DEE9C ;
+    --cor1:#121117 ;
+    --cor2:#27272A ;
+    --cor3:#434343;
+    --cor4: #D9D9D9;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor1);
+}
+
+.nav__green{
+    background-color: var(--corVerde) ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 110px;
+    background-size: cover;
+}
+
+.nav__green .texto__principal:nth-child(1){
+   font-family: var(--font);
+   text-align: center;
+   color: white;
+   font-size: 40px;
+   width: 10px;
+   position: absolute;
+   font-size: 40px;
+   margin-left: 30px;
+   text-shadow: 0 3px 7px var(--cor1);
+}
+
+.nav__green .texto__principal:nth-child(2){
+    font-family: var(--font);
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    width: 10px;
+    margin-top: 35px;
+    font-size: 66px;
+    letter-spacing: 5px;
+    text-shadow: 0 3px 7px var(--cor1)
+}
+
+#ContainerCapa{
+    display: flex;
+    flex-wrap: wrap;
+    width: 55%;
+    height: 10px;
+    position: relative;
+    left: 10%;
+   
+}
+
+.Requisitos,.capa_ps{
+    border: 2px solid black;
+    margin: 5px;
+    width: auto;
+}
+.capa_ps{
+    width: 460px;
+    height: 110px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--cor4);
+    padding: 5px 30px 5px 30px;
+    margin: 20px 30px 10px 30px;
+    background-repeat: no-repeat;
+   
+}
+
+.container_busca{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#busca {
+    font-family: var(--font);
+    padding: 10px;
+    border-radius: 46px;
+    width: 900px;
+    height: 70px;
+    border: none;
+    background-color: var(--cor4);
+    font-size: 30px;
+    background-image: url("https://f55f12fe8ec0186f.cdn.gocache.net/assets/2022/icon-search-c60be760ea96bed84b8b98d6bb4db16883fddf5fb962fa56ba4a84896b2f1fc0.svg");
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+ 
+input::placeholder{
+    text-align: center;
+    opacity: 8%;
+    color: var(--cor1);
+}
+
+.Requisitos{
+    display: none;
+    width: 450px;
+    border-radius: 5px;
+}
+
+
+#filtros{
+    
+    margin: 0 auto 0 auto;
+    width: 450px;
+    border-radius: 5px 0 0 5px;
+    position: relative;
+    left: 7%;
+    background-color: var(--corVerde);
+    background-size: cover;
+}
+
+#Container{
+    display:flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.Texto__vagas--container {
+    font-family: var(--font);
+    letter-spacing: 2px;
+    margin-top: 5px;   
+}
+
+.Localidade {
+    font-family: var(--font);
+    background-color: var(--cor3);
+    color: var(--cor4);
+    border-radius: 10px;
+    border: none;
+    display: inline;
+    align-items: center;
+    padding: 1px 15px 1px 15px;
+    font-size: 12px;
+}
+
+.modelotrabalho {
+    font-family: var(--font);
+    background-color: var(--corVerde);
+    color: var(--cor1);
+    border-radius: 10px;
+    border: none;
+    display: inline;
+    align-items: center;
+    padding: 1px 20px 1px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    position: relative;
+    left: 10px;
+}
+
+.Empresa{
+    font-family: var(--font);
+    color: var(--cor1);
+    font-size: 15px;
+    position: relative;
+    top: 20%;
+    left: 20%;
+}
+
+.btn_inscrever {
+    position: relative;
+    left: 50%;@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@media(max-width: 476px){
+
+    #Container{
+        width: 80%;
+    } 
+    #Container #ContainerCapa .capa_ps{
+        width: 460px;
+    }
+   #Container .capa_ps .Texto__vagas--container{
+        font-size: 10px;
+        margin-top: 1px;
+    }
+   #Container .capa_ps .Localidade {
+        padding: 1px 10px 1px 10px;
+        border-radius: 10px;
+        font-size: 8px;
+    }
+   #Container .capa_ps .modelotrabalho{
+        padding: 1px 10px 1px 10px;
+        font-size: 8px;
+    }
+    #Container .capa_ps .Empresa{
+        font-size: 8px;
+    }
+  #Container  .capa_ps .imagem_empresa{
+        width: 25px;
+        height: 25px;
+        border: var(--cor4) solid;
+        position: relative;
+        bottom: 3px;
+        left: -25%;
+    
+        }
+   #Container .capa_ps .btn_inscrever{
+        padding: 1px 12px 1px 12px;
+        left: 45%;
+        bottom: 40%;
+    }
+    
+    #Container .capa_ps .btn_inscrever a{
+        font-size: 8px;
+    }
+    .container_busca #busca {
+        width: 60%;
+        height: 50px;
+      }
+
+
+}
+@media(max-width: 768px) {
+    #Container{
+        width: 80%;
+    } 
+    header .nav__green{
+        text-align: center;
+        width: 100%;
+    }
+   header .nav__green .texto__principal:nth-child(1){
+    font-size: 35px;
+   }
+   header .nav__green  .texto__principal:nth-child(2){
+    font-size: 56px;
+   }
+   .container_busca #busca {
+     width: 60%;
+     height: 50px;
+   }
+    .capa_ps .Texto__vagas--container{
+        font-size: 12px;
+        margin-top: 1px;
+    }
+   .capa_ps .Localidade {
+        padding: 1px 10px 1px 10px;
+        border-radius: 10px;
+        font-size: 10px;
+    }
+    .capa_ps .modelotrabalho{
+        padding: 1px 15px 1px 15px;
+        font-size: 10px;
+    }
+    .capa_ps .Empresa{
+        font-size: 10px;
+    }
+    .capa_ps .btn_inscrever{
+        padding: 2px 20px 2px 15px;
+        left: 45%;
+        bottom: 2%
+    }
+    .capa_ps .btn_inscrever a{
+        font-size: 12px;
+    }
+    .capa_ps .imagem_empresa{
+    width: 30px;
+    height: 30px;
+    border: var(--cor4) solid;
+    position: relative;
+    bottom: 3px;
+    right: 4px;
+
+    }
+   #Container #filtros{
+        position:relative;
+        width: 32%;
+        left:30%
+        
+    }
+    #filtros .Texto_filtro--container {
+        font-size:  30px;
+    }
+    #filtros .Texto_principal--checbox{
+        font-size: 20px;
+    }
+    #filtros label{
+        font-size: 14px;
+    }
+}
+@media  (max-width: 1024px){
+    #Container{
+        width: 80%;
+    }
+    header{
+        width: 100%;
+        
+    }
+    
+    .nav__green .texto__principal:nth-child(2){
+        position: relative;
+        right:1%;
+    }
+    .nav__green .texto__principal:nth-child(1){
+        
+        position: relative;
+        right: 50%;
+    }
+
+    #Container{
+       max-width: 800px;
+    }
+     #Container  #filtros{
+        position: relative;
+        width: 31%;
+        left:35%;
+             
+    }
+    #container_busca{
+        max-width: 100%;
+    }
+  
     #filtros .Texto_filtro--container {
         font-size:  40px;
     }
@@ -307,7 +686,47 @@ input::placeholder{
 .imagem_empresa {
     width: 40px;
     height: 40px;
-    border-radius: 100px;
+    border-radius: 50%;
+    border: var(--cor4) solid;
+    position: relative;
+    bottom: 12px;
+}
+
+.Texto_filtro--container {
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 40px;
+    text-shadow: 0 0 0.2px var(--cor1)
+}
+
+.Texto_principal--checbox {
+    font-family: var(--font);
+    font-size: 30px;
+    text-shadow: 0 0 0.2px var(--cor1);
+    margin: 20px 0 10px 10%;
+}
+    bottom: 30px;
+    font-family: var(--font);
+    background-color: var(--cor3);
+    padding: 2px 20px 2px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn_inscrever, a {
+    text-decoration: none;
+    color: var(--cor4);
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+
+.imagem_empresa {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: var(--cor4) solid;
     position: relative;
     bottom: 12px;
