@@ -103,6 +103,7 @@ body {
     height: 10px;
     position: relative;
     left: 10%;
+    
    
 }
 
@@ -118,8 +119,9 @@ body {
     border-radius: 5px;
     border: none;
     padding: 5px 30px 5px 30px;
-    margin: 20px 30px 10px 30px;
+    margin: 1vw 1vh;
     background-repeat: no-repeat;
+    
    
 }
 
@@ -160,7 +162,7 @@ input::placeholder{
 #filtros{
     
     width: 19%; /* largura desejada */
-    margin-top: 0; /* margem superior */
+    margin-top: 1.8%; /* margem superior */
     margin-bottom: 0; /* margem inferior */
     margin-left: auto; /* margem à esquerda, ajusta automaticamente */
     margin-right: auto; /* margem à direita, ajusta automaticamente */  
@@ -180,7 +182,8 @@ input::placeholder{
 .Texto__vagas--container {
     font-family: var(--font);
     letter-spacing: 2px;
-    margin-top: 5px;   
+    margin-top: 5px;
+    margin-bottom: 0.5vh;   
 }
 
 .Localidade {
@@ -225,7 +228,7 @@ input::placeholder{
     bottom: 25%;
     font-family: var(--font);
     background-color: var(--cor3);
-    padding: 2px 20px 2px 20px;
+    padding: 2px 1vw 2px 1vw;
     border-radius: 5px;
     border: none;
 }
@@ -236,7 +239,7 @@ input::placeholder{
     justify-content: center;
     text-decoration: none;
     color: var(--cor4);
-    font-size: 19px;
+    font-size: 1rem;
     letter-spacing: 1px;
 }
 
@@ -269,14 +272,14 @@ input::placeholder{
 .filtro_Localidade {
     overflow: auto;
     height: 20%;
-    width: 300px;
+    width: 100;
     margin: 20px 0 10px 10%; 
 }
 
 .filtro_Empresa {
     overflow: auto;
     height: 10%;
-    width: 300px;
+    width: 100;
     margin: 20px 0 10px 10%; 
 }
 
