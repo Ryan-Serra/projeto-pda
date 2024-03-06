@@ -1,208 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-@media(max-width:426px){
-    #Container .capa_ps .Texto__vagas--container{
-        font-size: 8px;
-        margin-top: 1px;
-    }
-   #Container .capa_ps .Localidade {
-        padding: 1px 6px 1px 6px;
-        border-radius: 10px;
-        font-size: 6px;
-    }
-   #Container .capa_ps .modelotrabalho{
-        padding: 1px 6px 1px 6px;
-        font-size: 4px;
-        
-    }
-    #Container .capa_ps .Empresa{
-        font-size: 6px;
-        
-    }
-  #Container  .capa_ps .imagem_empresa{
-        width: 25px;
-        height: 25px;
-        border: var(--cor4) solid;
-        position: relative;
-        bottom: 1%;
-        left: -10%;
-    
-        }
-   #Container .capa_ps .btn_inscrever{
-        padding: 1px 12px 1px 12px;
-        left: 35%;
-        bottom: -10%;
-    }
-    
-    #Container .capa_ps .btn_inscrever a{
-        font-size: 8px;
-    }
-    .container_busca #busca {
-        width: 60%;
-        height: 50px;
-      }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
 }
-@media(max-width: 476px){
-
-    #Container{
-        width: 80%;
-    } 
-    #Container #ContainerCapa{
-        width: 70%;
-    }
-    #Container  .capa_ps{
-        width: 250px;
-    }
-   #Container .capa_ps .Texto__vagas--container{
-        font-size: 10px;
-        margin-top: 1px;
-    }
-   #Container .capa_ps .Localidade {
-        padding: 1px 10px 1px 10px;
-        border-radius: 10px;
-        font-size: 8px;
-    }
-   #Container .capa_ps .modelotrabalho{
-        padding: 1px 10px 1px 10px;
-        font-size: 8px;
-    }
-    #Container .capa_ps .Empresa{
-        font-size: 8px;
-    }
-  #Container  .capa_ps .imagem_empresa{
-        width: 25px;
-        height: 25px;
-        border: var(--cor4) solid;
-        position: relative;
-        bottom: 1%;
-        left: -10%;
-    
-        }
-   #Container .capa_ps .btn_inscrever{
-        padding: 1px 12px 1px 12px;
-        left: 45%;
-        bottom: -10%;
-    }
-    
-    #Container .capa_ps .btn_inscrever a{
-        font-size: 8px;
-    }
-    .container_busca #busca {
-        width: 60%;
-        height: 50px;
-      }
-
-
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
 }
-@media(max-width: 768px) {
-    #Container{
-        width: 80%;
-    } 
-    header .nav__green{
-        text-align: center;
-        width: 100%;
-    }
-   header .nav__green .texto__principal:nth-child(1){
-    font-size: 35px;
-   }
-   header .nav__green  .texto__principal:nth-child(2){
-    font-size: 56px;
-   }
-   .container_busca #busca {
-     width: 60%;
-     height: 50px;
-   }
-    .capa_ps .Texto__vagas--container{
-        font-size: 12px;
-        margin-top: 1px;
-    }
-   .capa_ps .Localidade {
-        padding: 1px 10px 1px 10px;
-        border-radius: 10px;
-        font-size: 10px;
-    }
-    .capa_ps .modelotrabalho{
-        padding: 1px 15px 1px 15px;
-        font-size: 10px;
-    }
-    .capa_ps .Empresa{
-        font-size: 10px;
-    }
-    .capa_ps .btn_inscrever{
-        padding: 2px 20px 2px 15px;
-        left: 45%;
-        bottom: 2%
-    }
-    .capa_ps .btn_inscrever a{
-        font-size: 12px;
-    }
-    .capa_ps .imagem_empresa{
-    width: 30px;
-    height: 30px;
-    border: var(--cor4) solid;
-    position: relative;
-    bottom: 3px;
-    right: 4px;
-
-    }
-   #Container #filtros{
-        position:relative;
-        width: 32%;
-        left:30%;
-        
-    }
-    #filtros .Texto_filtro--container {
-        font-size:  30px;
-    }
-    #filtros .Texto_principal--checbox{
-        font-size: 20px;
-    }
-    #filtros label{
-        font-size: 14px;
-    }
+body {
+    line-height: 1;
 }
-@media  (max-width: 1024px){
-    #Container{
-        width: 80%;
-    }
-    header{
-        width: 100%;
-        
-    }
-    
-    .nav__green .texto__principal:nth-child(2){
-        position: relative;
-        right:1%;
-    }
-    .nav__green .texto__principal:nth-child(1){
-        
-        position: relative;
-        right: 50%;
-    }
-
-    #Container{
-       max-width: 800px;
-    }
-     #Container  #filtros{
-        position: relative;
-        width: 31%;
-        left:35%;
-             
-    }
-    #container_busca{
-        max-width: 100%;
-    }
-  
-    #filtros .Texto_filtro--container {
-        font-size:  40px;
-    }
-    #filtros .Texto_principal--checbox{
-        font-size: 25px;
-    }
-    #filtros label{
-        font-size: 16px;
-    }
-    
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 :root{
     --font: "Bebas Neue", sans-serif;
@@ -223,6 +62,7 @@ body {
 }
 
 .nav__green{
+    padding: 10px 0 10px 0;
     background-color: var(--corVerde) ;
     width: 100%;
     display: flex;
@@ -252,7 +92,8 @@ body {
     margin-top: 35px;
     font-size: 66px;
     letter-spacing: 5px;
-    text-shadow: 0 3px 7px var(--cor1)
+    text-shadow: 0 3px 7px var(--cor1);
+    padding: 7px;
 }
 
 #ContainerCapa{
@@ -272,7 +113,7 @@ body {
     width: auto;
 }
 .capa_ps{
-    width: 460px;
+    width: 25vw;
     height: 110px;
     border-radius: 5px;
     border: none;
@@ -318,11 +159,14 @@ input::placeholder{
 
 #filtros{
     
-    margin: 0 auto 0 auto;
-    width: 450px;
+    width: 19%; /* largura desejada */
+    margin-top: 0; /* margem superior */
+    margin-bottom: 0; /* margem inferior */
+    margin-left: auto; /* margem à esquerda, ajusta automaticamente */
+    margin-right: auto; /* margem à direita, ajusta automaticamente */  
     border-radius: 5px 0 0 5px;
     position: relative;
-    left: 7%;
+    left: 13%;
     background-color: var(--corVerde);
     background-size: cover;
 }
@@ -377,8 +221,8 @@ input::placeholder{
 
 .btn_inscrever {
     position: relative;
-    left: 50%;
-    bottom: 30px;
+    left: 65%;
+    bottom: 20%;
     font-family: var(--font);
     background-color: var(--cor3);
     padding: 2px 20px 2px 20px;
@@ -387,6 +231,9 @@ input::placeholder{
 }
 
 .btn_inscrever, a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: var(--cor4);
     font-size: 19px;
@@ -400,7 +247,7 @@ input::placeholder{
     border-radius: 50%;
     border: var(--cor4) solid;
     position: relative;
-    bottom: 12px;
+    bottom: 6%;
 }
 
 .Texto_filtro--container {
