@@ -269,4 +269,22 @@ input::placeholder{
 .filtro_Localidade {
     overflow: auto;
     height: 20%;
+    width: 300px;
+    margin: 20px 0 10px 10%; 
+}
+
+.filtro_Empresa {
+    overflow: auto;
+    height: 10%;
+    width: 300px;
+    margin: 20px 0 10px 10%; 
+}
+
+.Texto__modeloTrabalho {
+    margin: 20px 0 10px 10%; 
+}
+
+#Presencial, #Remoto
+,#híbrido{
+    margin: 0 0 10px 10%;
 }
