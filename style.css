@@ -43,6 +43,82 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+@media (max-width:1024px){
+    #Container .capa_ps .btn_inscrever{
+        bottom:40%;
+        left:60%;
+    }
+    #Container  .capa_ps p{
+        font-size: 0.6em;
+        padding: 1px 15px 1px 15px;
+    }
+    #Container .capa_ps  .btn_inscrever a{
+        font-size: 0.8em ;
+    }
+  
+}
+
+@media(max-width:768px){
+    #Container .capa_ps .btn_inscrever{
+        bottom:40%;
+        left:60%;
+    }
+    #Container .capa_ps p{
+        font-size: 0.5em;
+        padding: 1px 5px;
+    }
+    #Container .capa_ps .Empresa{
+        font-size: 0.5em;
+        padding: 1px 15px;
+    }
+
+    #Container .capa_ps  .btn_inscrever a{
+        font-size: 0.6em ;
+    }
+    #Container .capa_ps .Texto__vagas--container{
+        font-size: 0.7em;
+    }
+    #Container .container_busca #busca{
+        height: 50px;
+        width: 60%;
+        font-size: 2em;
+    }
+    #Container #filtros h3{
+        font-size:1.2em;
+    }
+
+    #Container #filtros h2{
+        font-size:1.8em;
+    }
+}
+@media(max-width:475px){
+  header .nav__green .lupa{
+        display:block;
+        width: 30px;
+        height: 30px;
+    }
+  header .nav__green .menu_bar{
+        display: block;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        right: 55%;
+    }
+    header .nav__green .busca_reponsive{
+        display: flex;
+        position: relative;
+        left:42%
+    }
+    header .nav__green .busca_reponsive span{
+        display: flex;
+        position: relative;
+        top: 12%;
+        left: 10%;
+    }
+}
 :root{
     --font: "Bebas Neue", sans-serif;
     --corVerde:#6DEE9C ;
@@ -60,7 +136,15 @@ table {
 body {
   background-color: var(--cor1);
 }
-
+.lupa{
+    display: none;
+}
+.menu_bar{
+    display:none;
+}
+.busca_reponsive{
+    display: none;
+}
 .nav__green{
     padding: 10px 0 10px 0;
     background-color: var(--corVerde) ;
