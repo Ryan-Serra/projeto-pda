@@ -20,19 +20,23 @@ var ModeloTrabalho=document.querySelectorAll('.modelotrabalho');
 var busca=document.querySelector('#busca')
 // Todos  os filtros juntos 
  var filtros= document.querySelectorAll(".filtros")
+ // Filtro Salário
+ var min_price=document.querySelector("input[type='text'][name='min_price']"); // Preço minímo 
+ var max_price=document.querySelector("input[type='text'][name='max_price']"); // Preço máximo
+ var menu=document.querySelector('.menu_bar')
+ //var busca_responsive= document.querySelector( '.busca_responsive' )
 // auxiliares  para realizar a busca
 var busca_Localidade=''
 var busca_Empresas=''
 var busca_ModeloTrabalho=''
 var procura=''
-var contador=0
-var control=0
 var buscador=''
 var EstadoCheckbox=[false, false, false]
 for(let i=0; i<Localidade.length; i++){
 busca.addEventListener('keypress', function(event){
     capa_ps[i].style.display='none'
     procura= busca.value
+    console.log(procura)
     procura=procura.toUpperCase()
     busca_Localidade= Localidade[i].innerHTML;
     busca_Localidade=busca_Localidade.toUpperCase();
@@ -45,6 +49,22 @@ busca.addEventListener('keypress', function(event){
     
 }});
 }
+// Selecionar o elemento busca_responsive
+var busca_responsive = document.querySelector('.busca_reponsive');
+
+// Adicionar um evento de clique a busca_responsive
+busca_responsive.addEventListener('click', function() {
+    // Lógica para manipular o clique no elemento busca_responsive
+    console.log("Clique em busca_responsive detectado");
+    // Adicione aqui o código para exibir ou ocultar a barra de busca ou realizar outras ações necessárias
+});
+
+var div_filtros=document.querySelector("#filtros")
+menu.addEventListener( 'click', function(event){
+        if(div_filtros.style.display!='none') div_filtros.style.display='none';
+        else div_filtros.style.display = "block";
+    
+})
 for(let i=0; i<ModeloTrabalho.length;i++){
     busca.addEventListener('keypress', function(event){
         capa_ps[i].style.display='none'
@@ -133,5 +153,40 @@ for(let i=0; i < capa_ps.length; i++ ){
             }
         });
     }
-   
-  
+// Função para buscar pelo Salário
+let salario=document.querySelectorAll('.salario');
+
+min_price.addEventListener('keypress', function(event){
+    if (event.key === 'Enter') {
+       
+        for (let i = 0; i < salario.length; i++) {
+            let salarioAtual = parseInt(salario[i].textContent);
+            let minSalario = parseInt(min_price.value);
+            let maxSalario = parseInt(max_price.value);
+
+            if (minSalario <= salarioAtual && salarioAtual <= maxSalario) {
+                console.log("passou");
+                capa_ps[i].style.display = "block";
+            } else {
+                capa_ps[i].style.display = "none";
+            }
+        }
+    }
+});
+max_price.addEventListener('keypress', function(event){
+    if (event.key === 'Enter') {
+       
+        for (let i = 0; i < salario.length; i++) {
+            let salarioAtual = parseInt(salario[i].textContent);
+            let minSalario = parseInt(min_price.value);
+            let maxSalario = parseInt(max_price.value);
+
+            if (minSalario <= salarioAtual && salarioAtual <= maxSalario) {
+                console.log("passou");
+                capa_ps[i].style.display = "block";
+            } else {
+                capa_ps[i].style.display = "none";
+            }
+        }
+    }
+});
