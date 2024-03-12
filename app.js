@@ -32,6 +32,26 @@ var busca_ModeloTrabalho=''
 var procura=''
 var buscador=''
 var EstadoCheckbox=[false, false, false]
+// Selecionar o elemento busca_responsive
+var busca_responsive = document.querySelector('.busca_reponsive');
+
+// Adicionar um evento de clique a busca_responsive
+busca_responsive.addEventListener('click', function() {
+    // Lógica para manipular o clique no elemento busca_responsive
+    if(busca.style.display!='none') busca.style.display='block';
+    else busca.style.display='none';
+    // Adicione aqui o código para exibir ou ocultar a barra de busca ou realizar outras ações necessárias
+});
+
+var div_filtros=document.querySelector("#filtros")
+menu.addEventListener( 'click', function(){
+   
+        if(div_filtros.style.display!='none') div_filtros.style.display='block';
+       else if(div_filtros.style.display=="block") div_filtros.style.display="none";
+        
+        for(let i= 0; i< capa_ps.length; i++)capa_ps[i].style.display='none'
+    
+})
 for(let i=0; i<Localidade.length; i++){
 busca.addEventListener('keypress', function(event){
     capa_ps[i].style.display='none'
@@ -49,22 +69,6 @@ busca.addEventListener('keypress', function(event){
     
 }});
 }
-// Selecionar o elemento busca_responsive
-var busca_responsive = document.querySelector('.busca_reponsive');
-
-// Adicionar um evento de clique a busca_responsive
-busca_responsive.addEventListener('click', function() {
-    // Lógica para manipular o clique no elemento busca_responsive
-    console.log("Clique em busca_responsive detectado");
-    // Adicione aqui o código para exibir ou ocultar a barra de busca ou realizar outras ações necessárias
-});
-
-var div_filtros=document.querySelector("#filtros")
-menu.addEventListener( 'click', function(event){
-        if(div_filtros.style.display!='none') div_filtros.style.display='none';
-        else div_filtros.style.display = "block";
-    
-})
 for(let i=0; i<ModeloTrabalho.length;i++){
     busca.addEventListener('keypress', function(event){
         capa_ps[i].style.display='none'
@@ -102,6 +106,7 @@ for(let i=0; i < capa_ps.length; i++ ){
        for(let j=0; j<capa_ps.length ;j++) {
          capa_ps[j].style.display='none'
     }
+    div_filtros.style.display='none'
 });
 }
 
