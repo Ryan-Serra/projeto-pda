@@ -45,9 +45,12 @@ table {
 }
 
 @media (max-width:1024px){
+    #Container .Texto__vagas--container{
+        font-size: 0.9em;
+    }
     #Container .capa_ps .btn_inscrever{
         bottom:40%;
-        left:60%;
+        left:65%;
     }
     #Container  .capa_ps p{
         font-size: 0.6em;
@@ -57,6 +60,13 @@ table {
         font-size: 0.8em ;
     }
   
+}
+#Container .range-filter{
+    width: 90%;
+
+}
+#Container .price-controls input { 
+    width:4em;
 }
 
 @media(max-width:768px){
@@ -92,11 +102,36 @@ table {
         font-size:1.8em;
     }
 }
-@media(max-width:475px){
+@media(max-width:476px){
+    header .nav__green .texto__principal:nth-child(1){
+        font-size: 30px;
+        margin-left: 5px;
+        position: relative;
+        right:20%;
+        top:25%;
+
+    }
+    header .nav__green .texto__principal:nth-child(2){
+        font-size: 40px;
+        margin-left: 5px;
+        position: relative;
+        right:25%;
+        margin-top: 25px;
+        top:25%
+
+    }
+    #Container #filtros{
+        display:none;
+    }
+     .container_busca #busca {
+        display: none;
+    }
+
   header .nav__green .lupa{
         display:block;
         width: 30px;
         height: 30px;
+        cursor: pointer;
     }
   header .nav__green .menu_bar{
         display: block;
@@ -110,14 +145,74 @@ table {
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
-        left:42%
+        left:40%;
+        top:70%;
     }
     header .nav__green .busca_reponsive span{
         display: flex;
         position: relative;
         top: 12%;
         left: 10%;
+        cursor: pointer;
     }
+    #Container .capa_ps{
+        width: 200px;
+    }
+   #Container .Requisitos .btn_inscrever{
+        left: 65%;
+    }
+    #Container .capa_ps .btn_inscrever{
+        left: 75%;
+        bottom: 20%;
+    }
+    #Container #filtros{
+        left:-40%;
+        width: 300px;
+    }
+
+
+}
+@media(max-width:376px){
+ 
+    header .nav__green .menu_bar{
+        display: block;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        right: 60%;
+    }
+    #Container  .capa_ps .Texto__vagas--container{
+        font-size: 0.7em;
+       }
+   
+}
+@media(max-width:325px){
+    header .nav__green .menu_bar{
+        display: block;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        right: 65%;
+    }
+    header .nav__green .busca_reponsive{
+        display: flex;
+        position: relative;
+        left:35%;
+        top:70%;
+    }
+    #Container  .capa_ps{
+        padding: 2px;
+    }
+ #Container   .capa_ps .btn_inscrever{
+        left: 50%;
+        top:-10%;
+        
+    }
+
 }
 :root{
     --font: "Bebas Neue", sans-serif;
@@ -159,7 +254,6 @@ body {
    font-family: var(--font);
    text-align: center;
    color: white;
-   font-size: 40px;
    width: 10px;
    position: absolute;
    font-size: 40px;
@@ -209,6 +303,12 @@ body {
    
 }
 
+#ContainerRequisitos{
+    width: auto;
+    position: relative;
+    right: 25%;
+}
+
 .container_busca{
     display: flex;
     justify-content: center;
@@ -238,8 +338,14 @@ input::placeholder{
 
 .Requisitos{
     display: none;
-    width: 450px;
+    width: auto;
     border-radius: 5px;
+    padding: 0.5em;
+}
+.Requisitos .btn_inscrever {
+    position: relative;
+    left: 75%;
+    bottom: 25%;
 }
 
 
@@ -249,10 +355,9 @@ input::placeholder{
     margin-top: 1.8%; /* margem superior */
     margin-bottom: 0; /* margem inferior */
     margin-left: auto; /* margem à esquerda, ajusta automaticamente */
-    margin-right: auto; /* margem à direita, ajusta automaticamente */  
+    margin-right: 0; /* margem à direita, ajusta automaticamente */  
     border-radius: 5px 0 0 5px;
     position: relative;
-    left: 13%;
     background-color: var(--corVerde);
     background-size: cover;
 }
@@ -308,8 +413,8 @@ input::placeholder{
 
 .btn_inscrever {
     position: relative;
-    left: 65%;
-    bottom: 25%;
+    left: 72%;
+    bottom: 40%;
     font-family: var(--font);
     background-color: var(--cor3);
     padding: 2px 1vw 2px 1vw;
@@ -375,7 +480,6 @@ input::placeholder{
 ,#híbrido{
     margin: 0 0 10px 10%;
 }
-
 .min-price,
 .max-price {
     font-family: var(--font);
@@ -385,7 +489,7 @@ input::placeholder{
     width: 240px;
     margin: 30px auto;
     position: relative;
-    right: 30px;
+    right: 3%;
   }
   
   .range-controls {
@@ -426,11 +530,11 @@ input::placeholder{
   }
   
   .range-toggle-min {
-     left: 20px;
+     left: 1%;
   }
   
   .range-toggle-max {
-    left: 150px;
+    left: 60%;
   }
   
   .price-controls {
@@ -442,7 +546,7 @@ input::placeholder{
     display: inline-block;
     width: 80px;
     padding: 8px 10px;
-    margin-left: 10px;
+    margin-left: 10%;
     border: none;
     background-color: #f1f1f1;
   
