@@ -168,15 +168,12 @@ table {
     #Container #ContainerRequisitos{
         right: 10%;
     }
-
+    #Container .capa_ps .Texto__vagas--container{
+        font-size: 0.6em;
+    }
 
 }
 @media(max-width:376px){
- 
-    
-    #Container  .capa_ps .Texto__vagas--container{
-        font-size: 0.7em;
-       }
        #Container #ContainerCapa{
         left:0%
        }
@@ -187,7 +184,7 @@ table {
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
-        left:35%;
+        left:25%;
         top:70%;
     }
     #Container  .capa_ps{
