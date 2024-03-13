@@ -48,13 +48,6 @@ if(window.innerWidth<=475){
     busca.style.display='none'
     div_filtros.style.display='none'
 }
-menu.addEventListener('click', function () {
-    if (div_filtros.style.display === 'none') {
-        div_filtros.style.display = 'block';
-    } else {
-        div_filtros.style.display = "none";
-    }
-});
 function removerAcentos(texto) {
     // Normalize a string para transformar caracteres acentuados em suas formas não acentuadas
     return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
