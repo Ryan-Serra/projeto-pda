@@ -11,7 +11,7 @@ var capa_ps=document.querySelectorAll('.capa_ps');
 // div dos requisitos do processos seletivos
 var requisito_ps= document.querySelectorAll( '.Requisitos' );
 // Todos os paragrafos que terá a localidade
-var Localidade=document.querySelectorAll('.Localidade');
+var Localidade=document.querySelectorAll('.Localidade_Req');
 // Todos os paragrafos que terá o nome da empresa
 var Empresa=document.querySelectorAll('.Empresa');
 // Todos os paragrafos que terá o modelo de trabalho 
@@ -35,65 +35,82 @@ var EstadoCheckbox=[false, false, false]
 // Selecionar o elemento busca_responsive
 var busca_responsive = document.querySelector('.busca_reponsive');
 
+let container_busca=document.querySelector(".container_busca")
 // Adicionar um evento de clique a busca_responsive
 busca_responsive.addEventListener('click', function() {
     // Lógica para manipular o clique no elemento busca_responsive
-    if(busca.style.display!='none') busca.style.display='block';
-    else busca.style.display='none';
+    if(window.innerWidth<=475 && busca.style.display=='none') busca.style.display='flex';
+    else  busca.style.display='none';
     // Adicione aqui o código para exibir ou ocultar a barra de busca ou realizar outras ações necessárias
 });
 
 var div_filtros=document.querySelector("#filtros")
-menu.addEventListener( 'click', function(){
-   
-        if(div_filtros.style.display!='none') div_filtros.style.display='block';
-       else if(div_filtros.style.display=="block") div_filtros.style.display="none";
-        
-        for(let i= 0; i< capa_ps.length; i++)capa_ps[i].style.display='none'
-    
-})
-for(let i=0; i<Localidade.length; i++){
-busca.addEventListener('keypress', function(event){
-    capa_ps[i].style.display='none'
-    procura= busca.value
-    console.log(procura)
-    procura=procura.toUpperCase()
-    busca_Localidade= Localidade[i].innerHTML;
-    busca_Localidade=busca_Localidade.toUpperCase();
-    if(event.key==='Enter'){
-        for(let j=0; j<Localidade.length;j++)
-    if (busca_Localidade.includes(procura)) {
-        capa_ps[i].style.display='block'
-    }
-    
-    
-}});
+if(window.innerWidth<=475){
+    busca.style.display='none'
+    div_filtros.style.display='none'
 }
+menu.addEventListener('click', function () {
+    if (div_filtros.style.display === 'none') {
+        div_filtros.style.display = 'block';
+    } else {
+        div_filtros.style.display = "none";
+    }
+});
+function removerAcentos(texto) {
+    // Normalize a string para transformar caracteres acentuados em suas formas não acentuadas
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+busca.addEventListener('input', function(event) {
+    var procura = busca.value.trim().toUpperCase();
+    console.log("Texto procurado:", procura);
+
+    for (let i = 0; i < Localidade.length; i++) {
+        var busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase());
+        console.log("Texto na div:", busca_Localidade);
+
+        // Verificar se a parte específica do texto na div contém o termo de busca
+        if (busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura)) {
+            if (capa_ps[i]) capa_ps[i].style.display = 'block';
+            console.log("Encontrado na div", i);
+        } else {
+            if (capa_ps[i]) capa_ps[i].style.display = 'none';
+            console.log("Não encontrado na div", i);
+        }
+    }
+});
+
 for(let i=0; i<ModeloTrabalho.length;i++){
     busca.addEventListener('keypress', function(event){
-        capa_ps[i].style.display='none'
+      //  capa_ps[i].style.display='none'
         procura=busca.value
         procura=procura.toUpperCase()
         busca_ModeloTrabalho= ModeloTrabalho[i].innerHTML;
         busca_ModeloTrabalho=busca_ModeloTrabalho.toUpperCase();
         if(event.key=='Enter'){
             if(busca_ModeloTrabalho.includes(procura)){
-               capa_ps[i].style.display='block';
+             if(capa_ps[i])  capa_ps[i].style.display='block';
         }
+            else {
+            if(capa_ps[i]) capa_ps[i].style.display='none'
+            }
         }
     })
 }
 for(let i=0; i<Empresa.length;i++){
     busca.addEventListener('keypress', function(event){
-        capa_ps[i].style.display='none'
+      //  capa_ps[i].style.display='none'
         procura=busca.value
         procura=procura.toUpperCase()
         busca_Empresas= Empresa[i].innerHTML;
         busca_Empresas=busca_Empresas.toUpperCase();
         if(event.key=='Enter'){
             if(busca_Empresas.includes(procura)){
-                capa_ps[i].style.display='block';
-        }
+                if(capa_ps[i])  capa_ps[i].style.display='block';
+           }
+               else {
+               if(capa_ps[i]) capa_ps[i].style.display='none'
+               }
         }
     })
 }
