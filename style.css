@@ -107,7 +107,7 @@ table {
         font-size: 30px;
         margin-left: 5px;
         position: relative;
-        right:20%;
+        right:30%;
         top:25%;
 
     }
@@ -115,7 +115,7 @@ table {
         font-size: 40px;
         margin-left: 5px;
         position: relative;
-        right:25%;
+        right:35%;
         margin-top: 25px;
         top:25%
 
@@ -137,19 +137,11 @@ table {
         height: 30px;
         cursor: pointer;
     }
-  header .nav__green .menu_bar{
-        display: block;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        position: relative;
-        top: 50%;
-        right: 55%;
-    }
+  
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
-        left:40%;
+        left:30%;
         top:70%;
     }
     header .nav__green .busca_reponsive span{
@@ -181,15 +173,7 @@ table {
 }
 @media(max-width:376px){
  
-    header .nav__green .menu_bar{
-        display: block;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        position: relative;
-        top: 50%;
-        right: 60%;
-    }
+    
     #Container  .capa_ps .Texto__vagas--container{
         font-size: 0.7em;
        }
@@ -199,15 +183,7 @@ table {
    
 }
 @media(max-width:325px){
-    header .nav__green .menu_bar{
-        display: block;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        position: relative;
-        top: 50%;
-        right: 65%;
-    }
+ 
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
@@ -244,9 +220,7 @@ body {
 .lupa{
     display: none;
 }
-.menu_bar{
-    display:none;
-}
+
 .busca_reponsive{
     display: none;
 }
