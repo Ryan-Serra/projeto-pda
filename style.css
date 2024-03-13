@@ -123,8 +123,12 @@ table {
     #Container #filtros{
         display:none;
     }
-     .container_busca #busca {
+     .container_busca #busca  {
         display: none;
+    
+    }
+    #Container .container_busca #busca{
+        width: 60%;
     }
 
   header .nav__green .lupa{
@@ -166,8 +170,11 @@ table {
         bottom: 20%;
     }
     #Container #filtros{
-        left:-40%;
-        width: 300px;
+        left:-1%;
+        width: 170px;
+    }
+    #Container #ContainerRequisitos{
+        right: 10%;
     }
 
 
@@ -185,6 +192,9 @@ table {
     }
     #Container  .capa_ps .Texto__vagas--container{
         font-size: 0.7em;
+       }
+       #Container #ContainerCapa{
+        left:0%
        }
    
 }
@@ -350,7 +360,7 @@ input::placeholder{
 
 
 #filtros{
-    
+    display:block;
     width: 19%; /* largura desejada */
     margin-top: 1.8%; /* margem superior */
     margin-bottom: 0; /* margem inferior */
