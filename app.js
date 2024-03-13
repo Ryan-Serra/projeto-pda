@@ -23,8 +23,7 @@ var busca=document.querySelector('#busca')
  // Filtro Salário
  var min_price=document.querySelector("input[type='text'][name='min_price']"); // Preço minímo 
  var max_price=document.querySelector("input[type='text'][name='max_price']"); // Preço máximo
- var menu=document.querySelector('.menu_bar')
- //var busca_responsive= document.querySelector( '.busca_responsive' )
+
 // auxiliares  para realizar a busca
 var busca_Localidade=''
 var busca_Empresas=''
