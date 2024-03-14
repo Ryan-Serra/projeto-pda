@@ -325,8 +325,8 @@ input::placeholder{
 }
 .Requisitos .btn_inscrever {
     position: relative;
-    left: 75%;
-    bottom: 25%;
+    left: 90%;
+    bottom: 40%;
 }
 
 
@@ -401,6 +401,19 @@ input::placeholder{
     padding: 2px 1vw 2px 1vw;
     border-radius: 5px;
     border: none;
+}
+.btn_voltar{
+    position: relative;
+    left: 72%;
+    bottom: 40%;
+    font-family: var(--font);
+    background-color: var(--cor3);
+    padding: 2px 1vw 2px 1vw;
+    border-radius: 5px;
+    border: none;
+    color: var(--cor4);
+    font-size: 1rem;
+    letter-spacing: 1px;
 }
 
 .btn_inscrever, a {
