@@ -33,8 +33,9 @@ var buscador=''
 var EstadoCheckbox=[false, false, false]
 // Selecionar o elemento busca_responsive
 var busca_responsive = document.querySelector('.busca_reponsive');
-
+var voltar=document.querySelectorAll('.btn_voltar');
 let container_busca=document.querySelector(".container_busca")
+let ContainerCapa=document.querySelector(".ContainerCapa")
 // Adicionar um evento de clique a busca_responsive
 busca_responsive.addEventListener('click', function() {
     // Lógica para manipular o clique no elemento busca_responsive
@@ -106,7 +107,7 @@ for(let i=0; i<Empresa.length;i++){
         }
     })
 }
-
+//Função responsável por abrir a aba de requisitos
 for(let i=0; i < capa_ps.length; i++ ){
     //capa_ps[i].style.display = 'none'
     capa_ps[i].addEventListener('click',function(){
@@ -117,6 +118,20 @@ for(let i=0; i < capa_ps.length; i++ ){
     }
     div_filtros.style.display='none'
 });
+}
+// Função responsável por fechar a aba de requisitos 
+for(let i=0; i <voltar.length;i++){
+    voltar[i].addEventListener("click", function (e) {
+        if(requisito_ps[i].style.display=='block') {
+            requisito_ps[i].style.display='none'
+            for(let j=0; j< capa_ps.length;j++)
+                capa_ps[j].style.display='block'
+           
+        }
+        div_filtros.style.display='block'        
+
+       
+    });
 }
 
 // Adicionando listener de evento de mudança para o filtro de Modelo de Trabalho
