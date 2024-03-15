@@ -15,7 +15,7 @@ var Localidade=document.querySelectorAll('.Localidade_Req');
 // Todos os paragrafos que terá o nome da empresa
 var Empresa=document.querySelectorAll('.Empresa');
 // Todos os paragrafos que terá o modelo de trabalho 
-var ModeloTrabalho=document.querySelectorAll('.modelotrabalho');
+var ModeloTrabalho=document.querySelectorAll('.modelodetrabalho');
 // input de busca 
 var busca=document.querySelector('#busca')
 // Todos  os filtros juntos 
@@ -35,7 +35,6 @@ var EstadoCheckbox=[false, false, false]
 var busca_responsive = document.querySelector('.busca_reponsive');
 var voltar=document.querySelectorAll('.btn_voltar');
 let container_busca=document.querySelector(".container_busca")
-let ContainerCapa=document.querySelector(".ContainerCapa")
 // Adicionar um evento de clique a busca_responsive
 busca_responsive.addEventListener('click', function() {
     // Lógica para manipular o clique no elemento busca_responsive
@@ -53,60 +52,50 @@ function removerAcentos(texto) {
     // Normalize a string para transformar caracteres acentuados em suas formas não acentuadas
     return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
+busca.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        var procura = removerAcentos(busca.value.trim().toUpperCase());
 
-busca.addEventListener('input', function(event) {
-    var procura = busca.value.trim().toUpperCase();
-    console.log("Texto procurado:", procura);
+        // Verificar Localidade
+        for (let i = 0; i < Localidade.length; i++) {
+            var busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase());
+            var busca_ModeloTrabalho = removerAcentos(ModeloTrabalho[i].innerHTML.trim().toUpperCase());
+            var busca_Empresas = Empresa[i].innerHTML.trim().toUpperCase();
 
-    for (let i = 0; i < Localidade.length; i++) {
-        var busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase());
-        console.log("Texto na div:", busca_Localidade);
-
-        // Verificar se a parte específica do texto na div contém o termo de busca
-        if (busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura)) {
-            if (capa_ps[i]) capa_ps[i].style.display = 'block';
-            console.log("Encontrado na div", i);
-        } else {
-            if (capa_ps[i]) capa_ps[i].style.display = 'none';
-            console.log("Não encontrado na div", i);
+            if ((busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura))||(busca_ModeloTrabalho.includes(procura) && busca_ModeloTrabalho.includes("MODELO DE TRABALHO"))||(busca_Empresas.includes(procura))) {
+                if (capa_ps[i]) capa_ps[i].style.display = 'block';
+                console.log("Encontrado na div Localidade", i);
+            } else {
+                if (capa_ps[i]) capa_ps[i].style.display = 'none';
+            }
         }
+
+        // Verificar Modelo de Trabalho
+      /*  for (let i = 0; i < ModeloTrabalho.length; i++) {
+            
+            if (busca_ModeloTrabalho.includes(procura) && busca_ModeloTrabalho.includes("MODELO DE TRABALHO")) {
+                if (capa_ps[i]) capa_ps[i].style.display = 'block';
+                console.log("Encontrado na div Modelo de Trabalho", i);
+            } else {
+                if (capa_ps[i]) capa_ps[i].style.display = 'none';
+            }
+        }
+        */
+
+        // Verificar Empresa
+      /*  for (let i = 0; i < Empresa.length; i++) {
+           
+            if (busca_Empresas.includes(procura)) {
+                if (capa_ps[i]) capa_ps[i].style.display = 'block';
+                console.log("Encontrado na div Empresa", i);
+            } else {
+                if (capa_ps[i]) capa_ps[i].style.display = 'none';
+            }
+        }
+        */
     }
 });
 
-for(let i=0; i<ModeloTrabalho.length;i++){
-    busca.addEventListener('keypress', function(event){
-      //  capa_ps[i].style.display='none'
-        procura=busca.value
-        procura=procura.toUpperCase()
-        busca_ModeloTrabalho= ModeloTrabalho[i].innerHTML;
-        busca_ModeloTrabalho=busca_ModeloTrabalho.toUpperCase();
-        if(event.key=='Enter'){
-            if(busca_ModeloTrabalho.includes(procura)){
-             if(capa_ps[i])  capa_ps[i].style.display='block';
-        }
-            else {
-            if(capa_ps[i]) capa_ps[i].style.display='none'
-            }
-        }
-    })
-}
-for(let i=0; i<Empresa.length;i++){
-    busca.addEventListener('keypress', function(event){
-      //  capa_ps[i].style.display='none'
-        procura=busca.value
-        procura=procura.toUpperCase()
-        busca_Empresas= Empresa[i].innerHTML;
-        busca_Empresas=busca_Empresas.toUpperCase();
-        if(event.key=='Enter'){
-            if(busca_Empresas.includes(procura)){
-                if(capa_ps[i])  capa_ps[i].style.display='block';
-           }
-               else {
-               if(capa_ps[i]) capa_ps[i].style.display='none'
-               }
-        }
-    })
-}
 //Função responsável por abrir a aba de requisitos
 for(let i=0; i < capa_ps.length; i++ ){
     //capa_ps[i].style.display = 'none'
@@ -122,14 +111,12 @@ for(let i=0; i < capa_ps.length; i++ ){
 // Função responsável por fechar a aba de requisitos 
 for(let i=0; i <voltar.length;i++){
     voltar[i].addEventListener("click", function (e) {
-        if(requisito_ps[i].style.display=='block') {
+        if(requisito_ps[i].style.display=='block' ) {
             requisito_ps[i].style.display='none'
             for(let j=0; j< capa_ps.length;j++)
                 capa_ps[j].style.display='block'
-           
-        }
-        div_filtros.style.display='block'        
-
+           if( window.innerWidth>475) div_filtros.style.display='block'        
+            }
        
     });
 }
