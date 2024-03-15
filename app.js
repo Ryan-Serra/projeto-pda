@@ -34,7 +34,28 @@ var EstadoCheckbox=[false, false, false]
 // Selecionar o elemento busca_responsive
 var busca_responsive = document.querySelector('.busca_reponsive');
 var voltar=document.querySelectorAll('.btn_voltar');
-let container_busca=document.querySelector(".container_busca")
+//Array com os links
+let links = [
+    'https://mercedes-benz_cars.gupy.io/jobs/5428668?jobBoardSource=gupy_public_page',
+    'https://www.ciadeestagios.com.br/programas/sumitomo',
+    'https://sanofiestagio.across.jobs/',
+    'https://vagas.ciadetalentos.com.br/hotsite/estagiobracell2024',
+    'https://fa-eolm-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/pt-BR/sites/CX_1001/requisitions?keyword=estagiario&mode=location',
+    'https://genteraizen.gupy.io/jobs/6831972?jobBoardSource=@camilacroz',
+    'https://programa-de-estagio-farm.gupy.io/jobs/3889788?utm_source=@camilacroz&utm_medium=@camilacroz&utm_campaign=@camiilacroz&utm_content=inscricoesabertas_Bio_lancamento&utm_term=29_02_24'
+];
+
+// Selecionar o botão de inscrição
+let btn_inscrever = document.querySelector('.btn_inscrever');
+// Adicionar evento de clique ao botão
+btn_inscrever.addEventListener('click', function(event) {
+    // Iterar sobre os links e abrir cada um em uma nova aba
+    for (let i = 0; i < links.length; i++) {
+        if(event.key=="click")console.log(i)
+      //  window.open(links[i], "_blank");
+    }
+});
+
 // Adicionar um evento de clique a busca_responsive
 busca_responsive.addEventListener('click', function() {
     // Lógica para manipular o clique no elemento busca_responsive
@@ -69,30 +90,6 @@ busca.addEventListener('keypress', function(event) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'none';
             }
         }
-
-        // Verificar Modelo de Trabalho
-      /*  for (let i = 0; i < ModeloTrabalho.length; i++) {
-            
-            if (busca_ModeloTrabalho.includes(procura) && busca_ModeloTrabalho.includes("MODELO DE TRABALHO")) {
-                if (capa_ps[i]) capa_ps[i].style.display = 'block';
-                console.log("Encontrado na div Modelo de Trabalho", i);
-            } else {
-                if (capa_ps[i]) capa_ps[i].style.display = 'none';
-            }
-        }
-        */
-
-        // Verificar Empresa
-      /*  for (let i = 0; i < Empresa.length; i++) {
-           
-            if (busca_Empresas.includes(procura)) {
-                if (capa_ps[i]) capa_ps[i].style.display = 'block';
-                console.log("Encontrado na div Empresa", i);
-            } else {
-                if (capa_ps[i]) capa_ps[i].style.display = 'none';
-            }
-        }
-        */
     }
 });
 
