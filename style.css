@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -152,7 +152,9 @@ table {
         cursor: pointer;
     }
     #Container .capa_ps{
-        width: 200px;
+        
+        width: 350px;
+        font-size: 1em;
     }
    #Container .Requisitos .btn_inscrever{
         left: 65%;
@@ -169,7 +171,7 @@ table {
         right: 10%;
     }
     #Container .capa_ps .Texto__vagas--container{
-        font-size: 0.6em;
+        font-size: 0.8em;
     }
 
 }
@@ -199,6 +201,7 @@ table {
 }
 :root{
     --font: "Bebas Neue", sans-serif;
+    --font2:"Ojuju",sans-serif;
     --corVerde:#6DEE9C ;
     --cor1:#121117 ;
     --cor2:#27272A ;
@@ -272,6 +275,9 @@ body {
     margin: 5px;
     width: auto;
 }
+.desc--requisitos{
+    font-family: var(--font)
+}
 .capa_ps{
     width: 25vw;
     height: 110px;
@@ -318,18 +324,15 @@ input::placeholder{
 }
 
 .Requisitos{
+    font-family: var(--font2);
     display: none;
-    width: auto;
+    width: 35em;
     border-radius: 5px;
     padding: 0.5em;
 }
-.Requisitos .btn_inscrever {
-    position: relative;
-    left: 90%;
-    bottom: 40%;
+.Requisitos p{
+    line-height: 1.5;
 }
-
-
 #filtros{
     display:block;
     width: 19%; /* largura desejada */
@@ -391,11 +394,18 @@ input::placeholder{
     top: 20%;
     left: 20%;
 }
-
-.btn_inscrever {
+.capa_ps .btn_inscrever{
     position: relative;
     left: 72%;
     bottom: 40%;
+}
+
+.Requisitos .btn_inscrever{
+    position: relative;
+    top: 1.5em;
+    left:80%;
+}
+.btn_inscrever {
     font-family: var(--font);
     background-color: var(--cor3);
     padding: 2px 1vw 2px 1vw;
@@ -404,7 +414,7 @@ input::placeholder{
 }
 .btn_voltar{
     position: relative;
-    left: 72%;
+    left: 65%;
     bottom: 40%;
     font-family: var(--font);
     background-color: var(--cor3);
