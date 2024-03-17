@@ -241,7 +241,7 @@ body {
    width: 10px;
    position: absolute;
    font-size: 40px;
-   margin-left: 30px;
+   margin-left: 15px;
    text-shadow: 0 3px 7px var(--cor1);
 }
 
@@ -252,7 +252,7 @@ body {
     font-size: 40px;
     width: 10px;
     margin-top: 35px;
-    font-size: 66px;
+    font-size: 55px;
     letter-spacing: 5px;
     text-shadow: 0 3px 7px var(--cor1);
     padding: 7px;
@@ -398,6 +398,7 @@ input::placeholder{
     position: relative;
     left: 72%;
     bottom: 40%;
+   
 }
 
 .Requisitos .btn_inscrever{
