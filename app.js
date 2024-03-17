@@ -117,7 +117,8 @@ for(let i=0; i <voltar.length;i++){
 }
 
 // Adicionando listener de evento de mudança para o filtro de Modelo de Trabalho
- for (let i = 0; i < filtros.length; i++) {
+
+    for (let i = 0; i < filtros.length; i++) {
         filtros[i].addEventListener('change', function(event) {
             procura = filtros[i].id.toUpperCase();
     
@@ -164,6 +165,7 @@ for(let i=0; i <voltar.length;i++){
             }
         });
     }
+
 // Função para buscar pelo Salário
 let salario=document.querySelectorAll('.salario');
 
