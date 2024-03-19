@@ -170,8 +170,14 @@ table {
     #Container #ContainerRequisitos{
         right: 10%;
     }
+    #Container .Requisitos{
+        width: 20em;
+    }
+    #Container .btn_voltar{
+        left: 45%;
+    }
     #Container .capa_ps .Texto__vagas--container{
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
 
 }
@@ -189,6 +195,9 @@ table {
         left:25%;
         top:70%;
     }
+    #Container .capa_ps .Texto__vagas--container{
+        font-size: 0.6em;
+    }
     #Container  .capa_ps{
         padding: 2px;
     }
@@ -196,6 +205,12 @@ table {
         left: 50%;
         top:-10%;
         
+    }
+    #Container .Requisitos{
+        width: 15em;
+    }
+    #Container .btn_voltar{
+        left: 40%;
     }
 
 }
