@@ -9,23 +9,25 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
-    # recibimento do arquivo | Simulação
-
-    if request.method=='POST':
-        # pegando o arquivo
-        data = get_json()
+    if request.method == 'POST':
+ 
+        data = request.get_json()
         arquivo = data.get('arquivo')
-
-        # passando planilha recebida para programa
-        database_planilha.main(arquivo)
-    
-    if os.path.isfile('./output/Vagas.xlsx'):
+        arquivo_modificado = data.get('caminho_arquivo')
         
-        df = pd.read_excel('./output/Vagas.xlsx')
+        
+        if arquivo:
+            # passando planilha recebida para programa
+            database_planilha.main(arquivo)
+            df = pd.read_excel('./output/Vagas.xlsx')
+            return jsonify(planilha=df.to_dict(orient='records'))
+            
+
+        elif arquivo_modificado == './output/Vagas.xslx':
+            df = pd.read_excel('./output/Vagas.xlsx')
+            return jsonify(planilha=df.to_dict(orient='records'))
     
-        #return render_template('index.html', data=df_base.to_json(orient='records')) 
-        return data=df.to_json(orient='records')
+    return jsonify(planilha=[])
 
 #caminho para testes, AINDA NÃO FINALIZADO!
 if __name__ == "__main__":
