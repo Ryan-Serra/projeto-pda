@@ -203,3 +203,56 @@ max_price.addEventListener('keypress', function(event){
         }
     }
 });
+// Adicionando evento para  o botão de filtro responsivo 
+let img_responsive_filter= document.querySelector('.img--filtros')
+img_responsive_filter.addEventListener('click',function(){
+    for(let i=0; i<filtros.length;i ++){
+        
+        // Verificar o estado dos checkboxes e atualizar o EstadoCheckbox
+        if(filtros[i].checked == true){
+            procura = filtros[i].id.toUpperCase();
+            EstadoCheckbox[i] = filtros[i].checked;
+
+        // Verificar se pelo menos um checkbox está marcado
+        let algumCheckboxMarcado = EstadoCheckbox.some(checked => checked);
+
+        for (let j = 0; j < ModeloTrabalho.length; j++) {
+          //  buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
+
+            // Verificar se o modelao de trabalho corresponde ao filtro
+            let modeloMarcado = false;
+            for (let r = 0; r < EstadoCheckbox.length; r++) {
+                buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
+                if (EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    modeloMarcado = true;
+                    break;
+                } 
+                
+                buscador=Empresa[j].innerHTML.toUpperCase()
+                if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    modeloMarcado=true;
+                    break;
+                }
+                buscador=Localidade[j].innerHTML.toUpperCase()
+                
+                if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    modeloMarcado=true;
+                    break;
+                }
+            }
+        
+
+            // Mostrar ou ocultar a vaga com base no filtro de modelo de trabalho
+            if (algumCheckboxMarcado && modeloMarcado) {
+                capa_ps[j].style.display = 'block';
+            } else if (!algumCheckboxMarcado) {
+                capa_ps[j].style.display = 'block'; // Mostrar todas as vagas quando nenhum checkbox estiver marcado
+            } else {
+                capa_ps[j].style.display = 'none';
+            }
+        }
+    }
+}
+div_filtros.style.display='none'
+
+});
