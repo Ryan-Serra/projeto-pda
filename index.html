@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapeamento de vagas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsivo.css">
     <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon">
 </head>
 
@@ -196,6 +197,7 @@ Disponibilidade para residir em Lençóis Paulista, Macatuba, Agudos, Bauru, Bot
         </section>
 
         <div id="filtros" >
+            <img class="img--filtros" src="/imagens/close-removebg-preview.png" alt="">
             <h2 class="Texto_filtro--container">Filtros</h2>
             <h3 class="Texto_principal--checbox">Modelo de trabalho</h3>
             <input type="checkbox" name="modetrabalho" id="Presencial" class="filtros">
@@ -312,17 +314,8 @@ Disponibilidade para residir em Lençóis Paulista, Macatuba, Agudos, Bauru, Bot
                 <label for="Raízen">Raízen</label> <br>
             </div>
 
-            <span class="Texto_principal--checbox">Valor estágio</span>
+            <h3 class="Texto_principal--checbox">Valor estágio</h3>
             <div class="range-filter">
-                <div class="range-controls">
-                    <div class="scale">
-                        <div class="bar" style="width: 70%;"></div>
-                    </div>
-            
-                    <div class="range-toggle range-toggle-min"></div>
-                    <div class="range-toggle range-toggle-max"></div>
-                </div>
-            
                 <div class="price-controls">
                     <label class="min-price">
                         min <input type="text" value="1000" name="min_price">
@@ -337,5 +330,7 @@ Disponibilidade para residir em Lençóis Paulista, Macatuba, Agudos, Bauru, Bot
     </section>
 </body>
 <script src="app.js"></script>
+<script src="filtros.js"></script>
+<script src="interacao.js"></script>
 
 </html>
