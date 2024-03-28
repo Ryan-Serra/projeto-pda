@@ -9,9 +9,9 @@
 // capa dos processos seletivos
 var capa_ps=document.querySelectorAll('.capa_ps');
 // div dos requisitos do processos seletivos
-var requisito_ps= document.querySelectorAll( '.Requisitos' );
-// Botão para voltar a página inicial
-var voltar=document.querySelectorAll('.btn_voltar');
+// var requisito_ps= document.querySelectorAll( '.Requisitos' );
+// // Botão para voltar a página inicial
+// var voltar=document.querySelectorAll('.btn_voltar');
 //Botão para abrir o input text responsivo
 var busca_responsive = document.querySelector('.busca_reponsive');
 //Interação com os filtros
@@ -28,27 +28,56 @@ if(window.innerWidth<=475){
     div_filtros.style.display='none'
 }
 //Função responsável por abrir a aba de requisitos
-for(let i=0; i < capa_ps.length; i++ ){
-    //capa_ps[i].style.display = 'none'
-    capa_ps[i].addEventListener('click',function(){
-       if(requisito_ps[i].style.display=='block') requisito_ps[i].style.display='none'
-       else requisito_ps[i].style.display='block';
-       for(let j=0; j<capa_ps.length ;j++) {
-         capa_ps[j].style.display='none'
-    }
-    div_filtros.style.display='none'
-});
-}
-// Função responsável por fechar a aba de requisitos 
-for(let i=0; i <voltar.length;i++){
-    voltar[i].addEventListener("click", function (e) {
-        if(requisito_ps[i].style.display=='block' ) {
-            requisito_ps[i].style.display='none'
-            for(let j=0; j< capa_ps.length;j++)
-                capa_ps[j].style.display='block'
-           if( window.innerWidth>475) div_filtros.style.display='block'        
-            }
+// for(let i=0; i < capa_ps.length; i++ ){
+//     //capa_ps[i].style.display = 'none'
+//     capa_ps[i].addEventListener('click',function(){
+//        if(requisito_ps[i].style.display=='block') requisito_ps[i].style.display='none'
+//        else requisito_ps[i].style.display='block';
+//        for(let j=0; j<capa_ps.length ;j++) {
+//          capa_ps[j].style.display='none'
+//     }
+//     div_filtros.style.display='none'
+// });
+// }
+// // Função responsável por fechar a aba de requisitos 
+// for(let i=0; i <voltar.length;i++){
+//     voltar[i].addEventListener("click", function (e) {
+//         if(requisito_ps[i].style.display=='block' ) {
+//             requisito_ps[i].style.display='none'
+//             for(let j=0; j< capa_ps.length;j++)
+//                 capa_ps[j].style.display='block'
+//            if( window.innerWidth>475) div_filtros.style.display='block'        
+//             }
        
-    });
-}
+//     });
+// }
+
+
+
+var modalBtns = document.querySelectorAll(".modal-open");
+
+modalBtns.forEach(function (btn) {
+  btn.onclick = function () {
+    var modal = btn.getAttribute("data-modal");
+
+    document.getElementById(modal).style.display = "block";
+  };
+});
+
+var closeBtns = document.querySelectorAll(".close");
+
+closeBtns.forEach(function (btn) {
+  btn.onclick = function () {
+    var modal = btn.closest(".modal");
+    if (modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+window.onclick = function (e) {
+  if (e.target.className === "modal") {
+    e.target.style.display = "none";
+  }
+};
 
