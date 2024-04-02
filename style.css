@@ -80,11 +80,12 @@ table {
    
     
     header .menu_bar{
+        display: block;
         width: 50px;
         height: 50px;
-        left:45%
+        left:40%
     }
-    #Container .capa_ps .btn_inscrever{
+   #Container .capa_ps .btn_inscrever{
         bottom:40%;
         left:60%;
     }
@@ -103,11 +104,7 @@ table {
     #Container .capa_ps .Texto__vagas--container{
         font-size: 0.7em;
     }
-    #Container .container_busca #busca{
-        height: 50px;
-        width: 60%;
-        font-size: 2em;
-    }
+  
     #Container #filtros h3{
         font-size:1.2em;
     }
@@ -133,111 +130,32 @@ table {
         bottom: 30%;
     }
 }
-@media(max-width:476px){
-    header .nav__green .texto__principal:nth-child(1){
-        font-size: 30px;
-        margin-left: 5px;
-        position: relative;
-        left:-30%;
-        top:25%;
 
+@media (max-width: 426px){
+    header .nav__green .texto__principal:nth-child(1){
+        left: -3%;
     }
     header .nav__green .texto__principal:nth-child(2){
-        font-size: 40px;
-        margin-left: 5px;
         position: relative;
-        right:35%;
-        margin-top: 25px;
-        top:25%
-
+        right:32%;
     }
-    #Container #filtros{
-        width: 300px; 
-        right: 35%;
-        border-radius: 5px;
-    }
-     .container_busca #busca  {
-        display: none;
-    
-    }
-    #Container .container_busca #busca{
-        width: 60%;
-    }
-
-  header .nav__green .lupa{
-        display:block;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-    }
-  
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
         left:30%;
         top:70%;
     }
-    header .nav__green .busca_reponsive span{
+  header .lupa{
         display: flex;
-        position: relative;
-        top: 12%;
-        left: 10%;
-        cursor: pointer;
-    }
-    header .menu_bar{
-        width: 50px;
-        height: 50px;
-        left:35%
-    }
-    #Container .capa_ps{
-        margin-left: 0;
-        margin-right: 0;
-        width: 300px;
-        font-size: 1.4em;
-    }
-    #Container #ContainerCapa{
-        display: flex;
-        flex-wrap: wrap;
-        width: 55%;
-        height: 10px;
-        position: relative;
-        left: 12%;
-        
-       
-    }
-   #Container .Requisitos .btn_inscrever{
-        left: 65%;
-    }
-    #Container .capa_ps .btn_inscrever{
-        left: 80%;
-        bottom: 30%;
-    }
-    #Container #ContainerRequisitos{
-        right: 10%;
-    }
-    #Container .Requisitos{
-        width: 20em;
-    }
-    #Container .btn_voltar{
-        left: 45%;
-    }
-    #Container .capa_ps .Texto__vagas--container{
-        font-size: 0.6em;
-    }
-
-}
-@media (max-width: 426px){
-    header .nav__green .busca_reponsive{
-        display: flex;
-        position: relative;
-        left:25%;
-        top:70%;
+        width: 30px;
+        height:  30px;
     }
     header .menu_bar{
         width: 40px;
         height: 40px;
         position: relative;
-        left: 28%;
+        left: 32%;
+        top:60%
 
     }
     #Container .capa_ps{
@@ -247,7 +165,9 @@ table {
        
     }
 }
+
 @media(max-width:376px){
+   
     #Container .capa_ps .Texto__vagas--container{
         font-size: 0.4em;
     }
@@ -263,40 +183,26 @@ table {
    
 }
 @media(max-width:325px){
- 
     header .nav__green .busca_reponsive{
         display: flex;
         position: relative;
-        left:25%;
+        left:28%;
         top:70%;
     }
-    #Container .capa_ps{
-        
-        width: 250px;
-        font-size: 1.2em;  
-       
+  header .lupa{
+        display: flex;
+        width: 30px;
+        height:  30px;
     }
-       #Container #ContainerCapa{
-        left:0%
-       }
-    #Container .capa_ps .Texto__vagas--container{
-        font-size: 0.6em;
-    }
-    #Container  .capa_ps{
-        padding: 2px;
-    }
- #Container   .capa_ps .btn_inscrever{
-        left: 70%;
-        top:-12%;
-        
-    }
-    #Container .Requisitos{
-        width: 15em;
-    }
-    #Container .btn_voltar{
-        left: 40%;
-    }
+    header .menu_bar{
+        width: 40px;
+        height: 40px;
+        position: relative;
+        left: 30%;
+        top:60%
 
+    }
+   
 }
 
 :root{
@@ -319,6 +225,12 @@ body {
 }
 .lupa{
     display: none;
+    width: 30px;
+    height:  30px;
+}
+.texto_lupa{
+    position: relative;
+    bottom: -15%;
 }
 
 .menu_bar{
@@ -414,7 +326,7 @@ body {
     font-family: var(--font);
     padding: 10px;
     border-radius: 46px;
-    width: 900px;
+    width: 80%;
     height: 70px;
     border: none;
     background-color: var(--cor4);
