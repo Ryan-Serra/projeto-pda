@@ -133,7 +133,7 @@ table {
 
 @media (max-width: 426px){
     header .nav__green .texto__principal:nth-child(1){
-        left: -3%;
+        left:1.5%;
     }
     header .nav__green .texto__principal:nth-child(2){
         position: relative;
@@ -167,7 +167,9 @@ table {
 }
 
 @media(max-width:376px){
-   
+    header .nav__green .texto__principal:nth-child(1){
+        left:0%;
+    }
     #Container .capa_ps .Texto__vagas--container{
         font-size: 0.4em;
     }
