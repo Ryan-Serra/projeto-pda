@@ -71,7 +71,7 @@ table {
 
 @media(max-width:768px){
     header .nav__green .texto__principal:nth-child(1){
-        left: 0%;
+        left: 5%;
     }
     header .nav__green .texto__principal:nth-child(2){
         position: relative;
@@ -133,7 +133,7 @@ table {
 
 @media (max-width: 426px){
     header .nav__green .texto__principal:nth-child(1){
-        left:1.5%;
+        left:9.5%;
     }
     header .nav__green .texto__principal:nth-child(2){
         position: relative;
@@ -167,9 +167,7 @@ table {
 }
 
 @media(max-width:376px){
-    header .nav__green .texto__principal:nth-child(1){
-        left:0%;
-    }
+   
     #Container .capa_ps .Texto__vagas--container{
         font-size: 0.4em;
     }
@@ -235,15 +233,7 @@ body {
     bottom: -15%;
 }
 
-.menu_bar{
-    width: 60px;
-    height: 60px;
-    position: relative;
-    left: 30%;
-    top: 45%;
-    margin: 0;
-    display: none;
- }
+
 .busca_reponsive{
     display: none;
 }
@@ -264,7 +254,7 @@ body {
    width: 10px;
    position: absolute;
    font-size: 40px;
-   margin-left: 15px;
+   margin-left: 0;
    text-shadow: 0 3px 7px var(--cor1);
 }
 
@@ -433,12 +423,22 @@ input::placeholder{
     top: 1.5em;
     left:80%;
 }
-.btn_inscrever {
+.btn_inscrever, .menu_bar {
     font-family: var(--font);
     background-color: var(--cor3);
+    color: var(--cor4);
     padding: 2px 1vw 2px 1vw;
     border-radius: 5px;
     border: none;
+}
+.menu_bar{
+    position: relative;
+    left: 80%;
+    margin-top:20px;
+    font-size: 1.2em;
+    width: 80px;
+    height: 40px;
+
 }
 .btn_voltar{
     position: relative;
