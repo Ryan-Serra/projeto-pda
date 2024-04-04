@@ -16,6 +16,16 @@ var Localidade=document.querySelectorAll('.Localidade_Req');
 var Empresa=document.querySelectorAll('.Empresa');
 // Todos os paragrafos que terá o modelo de trabalho 
 var ModeloTrabalho=document.querySelectorAll('.modelodetrabalho');
+//Todos os paragrafos
+var modelodecurso= document.querySelectorAll(".modelodecurso")
+//Todos os paragrafos
+var cursosaceitos=document.querySelectorAll(".cursosaceitos")
+//Todos os paragrafos
+var setor=document.querySelectorAll('.setor')
+//Todos os paragrafos
+var areadeestagio= document.querySelectorAll(".areadeestagio")
+//Todos os paragrafos
+var periododeformacao=document.querySelectorAll( '.periododeformacao' )
 // input de busca 
 var busca=document.querySelector('#busca')
 // Todos  os filtros juntos 
@@ -32,6 +42,11 @@ var busca_Localidade=''
 var busca_Empresas=''
 var busca_ModeloTrabalho=''
 var busca_titulo=''
+var busca_modeloDeCurso=''
+var busca_cursosaceitos =''
+var busca_setor=''
+var busca_areadeestagio=''
+var busca_periododeformacao=''
 var procura=''
 var buscador=''
 var EstadoCheckbox=[false, false, false]
@@ -48,14 +63,39 @@ busca.addEventListener('keypress', function(event) {
 
         // Verificar Localidade
         for (let i = 0; i < Localidade.length; i++) {
-            busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase());
+            busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase())
             busca_ModeloTrabalho = removerAcentos(ModeloTrabalho[i].innerHTML.trim().toUpperCase());
             busca_Empresas = Empresa[i].innerHTML.trim().toUpperCase();
             busca_titulo=removerAcentos(titulo_capa[i].innerHTML.trim().toUpperCase())
-            if ((busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura))||(busca_ModeloTrabalho.includes(procura) && busca_ModeloTrabalho.includes("MODELO DE TRABALHO"))||(busca_Empresas.includes(procura))||(busca_titulo.includes(procura))) {
+            busca_modeloDeCurso=removerAcentos(modelodecurso[i].innerHTML.trim( ).toUpperCase())
+            busca_cursosaceitos=removerAcentos(cursosaceitos[i].innerHTML.trim( ).toUpperCase())
+            busca_setor=removerAcentos(setor[i].innerHTML.trim( ).toUpperCase())
+            busca_areadeestagio=removerAcentos(areadeestagio[i].innerHTML.trim( ).toUpperCase())
+            busca_periododeformacao=removerAcentos(periododeformacao[i].innerHTML.trim( ).toUpperCase())
+            if (
+                (busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura))
+                ||
+                (busca_ModeloTrabalho.includes(procura) && busca_ModeloTrabalho.includes("MODELO DE TRABALHO"))
+                ||
+                (busca_Empresas.includes(procura))
+                ||
+                (busca_titulo.includes(procura))
+                ||
+                (busca_modeloDeCurso.includes(procura))
+                ||
+                (busca_cursosaceitos.includes(procura))
+                ||
+                (busca_setor.includes(procura))
+                ||
+                (busca_areadeestagio.includes(procura))
+                ||
+                (busca_periododeformacao.includes(procura))) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'block';
-                console.log("Encontrado na div Localidade", i);
-            } else {
+            
+                
+            }
+            
+            else {
                 if (capa_ps[i]) capa_ps[i].style.display = 'none';
             }
         }
@@ -81,6 +121,7 @@ for (let i = 0; i < filtros.length; i++) {
             let modeloMarcado = false;
             for (let r = 0; r < EstadoCheckbox.length; r++) {
                 buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
+                
                 if (EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
                     modeloMarcado = true;
                     break;
@@ -92,10 +133,12 @@ for (let i = 0; i < filtros.length; i++) {
                     break;
                 }
                 buscador=Localidade[j].innerHTML.toUpperCase()
-                
+             
                 if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    
                     modeloMarcado=true;
                     break;
+                    
                 }
             }
         
@@ -136,7 +179,7 @@ max_price.addEventListener('keypress', function(event){
 if (event.key === 'Enter') {
    
     for (let i = 0; i < salario.length; i++) {
-        let salarioAtual = parseInt(salario[i].textContent);
+        let salarioAtual = parseInt(salario[i].textContent.replace("R$",""));
         let minSalario = parseInt(min_price.value);
         let maxSalario = parseInt(max_price.value);
 
