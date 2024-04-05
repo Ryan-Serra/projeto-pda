@@ -60,7 +60,6 @@ function removerAcentos(texto) {
 busca.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         var procura = removerAcentos(busca.value.trim().toUpperCase());
-
         // Verificar Localidade
         for (let i = 0; i < Localidade.length; i++) {
             busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase())
@@ -72,6 +71,9 @@ busca.addEventListener('keypress', function(event) {
             busca_setor=removerAcentos(setor[i].innerHTML.trim( ).toUpperCase())
             busca_areadeestagio=removerAcentos(areadeestagio[i].innerHTML.trim( ).toUpperCase())
             busca_periododeformacao=removerAcentos(periododeformacao[i].innerHTML.trim( ).toUpperCase())
+            var match = salario[i].textContent.match(/\d+/);
+            salarioAtual = match ? parseInt(match[0]) : 0;
+
             if (
                 (busca_Localidade.includes("LOCALIDADE:") && busca_Localidade.includes(procura))
                 ||
@@ -88,11 +90,14 @@ busca.addEventListener('keypress', function(event) {
                 (busca_setor.includes(procura))
                 ||
                 (busca_areadeestagio.includes(procura))
-                ||
-                (busca_periododeformacao.includes(procura))) {
+                /*||
+            (busca_periododeformacao.includes(procura))*/) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'block';
             
                 
+            }
+            else if ((salarioAtual>= parseInt(procura))&& (salarioAtual!="")){
+                if (capa_ps[i]) capa_ps[i].style.display = 'block';
             }
             
             else {
@@ -175,6 +180,9 @@ if (event.key === 'Enter') {
     }
 }
 });
+let salarioAtual = ''
+let minSalario = ''
+let maxSalario = ''
 max_price.addEventListener('keypress', function(event){
 if (event.key === 'Enter') {
    
