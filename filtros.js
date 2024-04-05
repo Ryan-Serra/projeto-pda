@@ -16,16 +16,14 @@ var Localidade=document.querySelectorAll('.Localidade_Req');
 var Empresa=document.querySelectorAll('.Empresa');
 // Todos os paragrafos que terá o modelo de trabalho 
 var ModeloTrabalho=document.querySelectorAll('.modelodetrabalho');
-//Todos os paragrafos
+//Todos os paragrafos modelo de curso aceitos 
 var modelodecurso= document.querySelectorAll(".modelodecurso")
-//Todos os paragrafos
+//Todos os paragrafos cursos aceitos
 var cursosaceitos=document.querySelectorAll(".cursosaceitos")
-//Todos os paragrafos
+//Todos os paragrafos para o setor da empresa
 var setor=document.querySelectorAll('.setor')
-//Todos os paragrafos
+//Todos os paragrafos para a área de estágio
 var areadeestagio= document.querySelectorAll(".areadeestagio")
-//Todos os paragrafos
-var periododeformacao=document.querySelectorAll( '.periododeformacao' )
 // input de busca 
 var busca=document.querySelector('#busca')
 // Todos  os filtros juntos 
@@ -46,10 +44,24 @@ var busca_modeloDeCurso=''
 var busca_cursosaceitos =''
 var busca_setor=''
 var busca_areadeestagio=''
-var busca_periododeformacao=''
 var procura=''
 var buscador=''
 var EstadoCheckbox=[false, false, false]
+let meses=[
+    {mes: 'Janeiro',id:1},
+    {mes: 'Fevereiro',id:2},
+    {mes: 'Março',id:3},
+    {mes: 'Abril',id:4},
+    {mes: 'Maio',id:5},
+    {mes: 'Junho',id:6},
+    {mes: 'Julho',id:7},
+    {mes: 'Agosto',id:8},
+    {mes: 'Setembro',id:9},
+    {mes: 'Outubro',id:10},
+    {mes: 'Novembro',id:11},
+    {mes: 'Dezembro',id:12},
+]
+console.log(meses[5].mes.toLocaleUpperCase())
 // Selecionar o elemento busca_responsive
 var busca_responsive = document.querySelector('.busca_reponsive');
 
@@ -70,7 +82,6 @@ busca.addEventListener('keypress', function(event) {
             busca_cursosaceitos=removerAcentos(cursosaceitos[i].innerHTML.trim( ).toUpperCase())
             busca_setor=removerAcentos(setor[i].innerHTML.trim( ).toUpperCase())
             busca_areadeestagio=removerAcentos(areadeestagio[i].innerHTML.trim( ).toUpperCase())
-            busca_periododeformacao=removerAcentos(periododeformacao[i].innerHTML.trim( ).toUpperCase())
             var match = salario[i].textContent.match(/\d+/);
             salarioAtual = match ? parseInt(match[0]) : 0;
 
@@ -90,8 +101,7 @@ busca.addEventListener('keypress', function(event) {
                 (busca_setor.includes(procura))
                 ||
                 (busca_areadeestagio.includes(procura))
-                /*||
-            (busca_periododeformacao.includes(procura))*/) {
+            ) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'block';
             
                 
@@ -100,7 +110,8 @@ busca.addEventListener('keypress', function(event) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'block';
             }
             
-            else {
+  
+             else {
                 if (capa_ps[i]) capa_ps[i].style.display = 'none';
             }
         }
@@ -309,3 +320,7 @@ menu_bar.addEventListener('click',function(){
         div_filtros.style.display='none'
     }        
 })
+
+
+
+            
