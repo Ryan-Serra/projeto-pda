@@ -59,7 +59,10 @@ table {
     #Container .capa_ps  .btn_inscrever a{
         font-size: 0.8em ;
     }
-  
+    
+    header .menu_bar {
+        display: none;
+    }
 }
 #Container .range-filter{
     width: 90%;
@@ -129,9 +132,10 @@ table {
         left: 70%;
         bottom: 30%;
     }
+    
 }
 
-@media (max-width: 426px){
+@media screen and (max-width: 426px){
     header .nav__green .texto__principal:nth-child(1){
         left:9.5%;
     }
@@ -162,8 +166,21 @@ table {
         
         width: 300px;
         font-size: 1.4em;  
-       
+
     }
+
+    #modal1,
+    #modal2,
+    #modal3,
+    #modal4,
+    #modal5,
+    #modal6, 
+    #modal7
+    {
+        width: 450px;
+        align-content: center;
+    }
+
 }
 
 @media(max-width:376px){
@@ -172,14 +189,26 @@ table {
         font-size: 0.4em;
     }
     #Container .capa_ps{
-        
-        width: 300px;
+        width: 150%;
         font-size: 1.4em;  
        
     }
-       #Container #ContainerCapa{
-        left:0%
-       }
+    #Container #ContainerCapa{
+        left:0%;
+    }
+
+    #modal1,
+    #modal2,
+    #modal3,
+    #modal4,
+    #modal5,
+    #modal6, 
+    #modal7
+    {
+        width: 400px;
+        align-content: center;
+    }
+
    
 }
 @media(max-width:325px){
@@ -202,7 +231,17 @@ table {
         top:60%
 
     }
-   
+    #modal1,
+    #modal2,
+    #modal3,
+    #modal4,
+    #modal5,
+    #modal6, 
+    #modal7
+    {
+        width: 350px;
+        align-content: center;
+    }
 }
 
 :root{
@@ -438,7 +477,6 @@ input::placeholder{
     font-size: 1.2em;
     width: 80px;
     height: 40px;
-
 }
 .btn_voltar{
     position: relative;
