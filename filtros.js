@@ -47,21 +47,8 @@ var busca_areadeestagio=''
 var procura=''
 var buscador=''
 var EstadoCheckbox=[false, false, false]
-let meses=[
-    {mes: 'Janeiro',id:1},
-    {mes: 'Fevereiro',id:2},
-    {mes: 'Março',id:3},
-    {mes: 'Abril',id:4},
-    {mes: 'Maio',id:5},
-    {mes: 'Junho',id:6},
-    {mes: 'Julho',id:7},
-    {mes: 'Agosto',id:8},
-    {mes: 'Setembro',id:9},
-    {mes: 'Outubro',id:10},
-    {mes: 'Novembro',id:11},
-    {mes: 'Dezembro',id:12},
-]
-console.log(meses[5].mes.toLocaleUpperCase())
+
+
 // Selecionar o elemento busca_responsive
 var busca_responsive = document.querySelector('.busca_reponsive');
 
@@ -122,8 +109,6 @@ busca.addEventListener('keypress', function(event) {
 
 for (let i = 0; i < filtros.length; i++) {
     filtros[i].addEventListener('change', function(event) {
-        procura = filtros[i].id.toUpperCase();
-
         // Verificar o estado dos checkboxes e atualizar o EstadoCheckbox
         EstadoCheckbox[i] = filtros[i].checked;
 
@@ -131,26 +116,24 @@ for (let i = 0; i < filtros.length; i++) {
         let algumCheckboxMarcado = EstadoCheckbox.some(checked => checked);
 
         for (let j = 0; j < ModeloTrabalho.length; j++) {
-          //  buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
 
             // Verificar se o modelao de trabalho corresponde ao filtro
             let modeloMarcado = false;
             for (let r = 0; r < EstadoCheckbox.length; r++) {
-                buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
-                
-                if (EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                buscador = removerAcentos(ModeloTrabalho[j].innerHTML.toUpperCase())
+                if (EstadoCheckbox[r] && buscador.includes(removerAcentos(filtros[r].id.toUpperCase()))) {
                     modeloMarcado = true;
                     break;
                 } 
                 
-                buscador=Empresa[j].innerHTML.toUpperCase()
-                if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                buscador=removerAcentos(Empresa[j].innerHTML.toUpperCase())
+                if(EstadoCheckbox[r] && buscador.includes(removerAcentos(filtros[r].id.toUpperCase()))) {
                     modeloMarcado=true;
                     break;
                 }
-                buscador=Localidade[j].innerHTML.toUpperCase()
+                buscador=removerAcentos(Localidade[j].innerHTML.toUpperCase())
              
-                if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                if(EstadoCheckbox[r] && buscador.includes(removerAcentos(filtros[r].id.toUpperCase()))) {
                     
                     modeloMarcado=true;
                     break;
@@ -212,70 +195,73 @@ if (event.key === 'Enter') {
 }
 });
 // Adicionando evento para  o botão de filtro responsivo 
-let img_responsive_filter= document.querySelector('.img--filtros')
-var div_filtros=document.querySelector("#filtros")
+let img_responsive_filter= document.querySelector('.responsive--img--filtros');
+var div_filtros=document.getElementById('responsive--filtro')
+let responsive_filter=document.querySelectorAll(".responsive--filtros")
+for (let i = 0; i < responsive_filter.length; i++) {
+    responsive_filter[i].addEventListener('change', function(event) {
+        // Verificar o estado dos checkboxes e atualizar o EstadoCheckbox
+        EstadoCheckbox[i] = responsive_filter[i].checked;
 
+        // Verificar se pelo menos um checkbox está marcado
+        let algumCheckboxMarcado = EstadoCheckbox.some(checked => checked);
+
+        for (let j = 0; j < ModeloTrabalho.length; j++) {
+
+            // Verificar se o modelao de trabalho corresponde ao filtro
+            let modeloMarcado = false;
+            for (let r = 0; r < EstadoCheckbox.length; r++) {
+                buscador = removerAcentos(ModeloTrabalho[j].innerHTML.toUpperCase())
+                //console.log(buscador);
+                if (EstadoCheckbox[r] && buscador.includes(removerAcentos(responsive_filter[i].id.replace(/\d/g,'').toUpperCase()))) {
+                    modeloMarcado = true;
+                    break;
+                } 
+                
+                buscador=removerAcentos(Empresa[j].innerHTML.toUpperCase())
+                if(EstadoCheckbox[r] && buscador.includes(removerAcentos(responsive_filter[i].id.replace(/\d/g,'').toUpperCase()))) {
+                    modeloMarcado=true;
+                    break;
+                }
+                buscador=removerAcentos(Localidade[j].innerHTML.toUpperCase())
+             
+                if(EstadoCheckbox[r] && buscador.includes(removerAcentos(responsive_filter[i].id.replace(/\d/g,'').toUpperCase()))) {
+                    
+                    modeloMarcado=true;
+                    break;
+                    
+                }
+            }
+        
+
+            // Mostrar ou ocultar a vaga com base no filtro de modelo de trabalho
+            if (algumCheckboxMarcado && modeloMarcado) {
+                capa_ps[j].style.display = 'block';
+            } else if (!algumCheckboxMarcado) {
+                capa_ps[j].style.display = 'block'; // Mostrar todas as vagas quando nenhum checkbox estiver marcado
+            } else {
+                capa_ps[j].style.display = 'none';
+            }
+        }
+    });
+}
 img_responsive_filter.addEventListener('click',function(){
-for(let i=0; i<filtros.length;i ++){
-    
-    // Verificar o estado dos checkboxes e atualizar o EstadoCheckbox
-    if(filtros[i].checked == true){
-        procura = filtros[i].id.toUpperCase();
-        EstadoCheckbox[i] = filtros[i].checked;
-
-    // Verificar se pelo menos um checkbox está marcado
-    let algumCheckboxMarcado = EstadoCheckbox.some(checked => checked);
-
-    for (let j = 0; j < ModeloTrabalho.length; j++) {
-      //  buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
-
-        // Verificar se o modelao de trabalho corresponde ao filtro
-        let modeloMarcado = false;
-        for (let r = 0; r < EstadoCheckbox.length; r++) {
-            buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
-            if (EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
-                modeloMarcado = true;
-                break;
-            } 
-            
-            buscador=Empresa[j].innerHTML.toUpperCase()
-            if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
-                modeloMarcado=true;
-                break;
-            }
-            buscador=Localidade[j].innerHTML.toUpperCase()
-            
-            if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
-                modeloMarcado=true;
-                break;
-            }
-        }
-    
-
-        // Mostrar ou ocultar a vaga com base no filtro de modelo de trabalho
-        if (algumCheckboxMarcado && modeloMarcado) {
-            capa_ps[j].style.display = 'block';
-        } else if (!algumCheckboxMarcado) {
-            capa_ps[j].style.display = 'block'; // Mostrar todas as vagas quando nenhum checkbox estiver marcado
-        } else {
-            capa_ps[j].style.display = 'none';
-        }
-    }
-}
-}
-div_filtros.style.display='none'
-
+    filtrar();
 });
 //Função responsável por abrir e fechar a aba de filtros 
 menu_bar.addEventListener('click',function(){
+    filtrar();
+})
+function filtrar(){
     if(div_filtros.style.display=='none') div_filtros.style.display= 'block'
     else{
-        for(let i=0; i<filtros.length;i ++){
+        for(let i=0; i<responsive_filter.length;i ++){
     
             // Verificar o estado dos checkboxes e atualizar o EstadoCheckbox
-            if(filtros[i].checked == true){
-                procura = filtros[i].id.toUpperCase();
-                EstadoCheckbox[i] = filtros[i].checked;
+            if(responsive_filter[i].checked == true){
+
+
+                EstadoCheckbox[i] = responsive_filter[i].checked;
         
             // Verificar se pelo menos um checkbox está marcado
             let algumCheckboxMarcado = EstadoCheckbox.some(checked => checked);
@@ -287,19 +273,19 @@ menu_bar.addEventListener('click',function(){
                 let modeloMarcado = false;
                 for (let r = 0; r < EstadoCheckbox.length; r++) {
                     buscador = ModeloTrabalho[j].innerHTML.toUpperCase();
-                    if (EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    if (EstadoCheckbox[r] && buscador.includes(responsive_filter[r].id.toUpperCase())) {
                         modeloMarcado = true;
                         break;
                     } 
                     
                     buscador=Empresa[j].innerHTML.toUpperCase()
-                    if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    if(EstadoCheckbox[r] && buscador.includes(responsive_filter[r].id.toUpperCase())) {
                         modeloMarcado=true;
                         break;
                     }
                     buscador=Localidade[j].innerHTML.toUpperCase()
                     
-                    if(EstadoCheckbox[r] && buscador.includes(filtros[r].id.toUpperCase())) {
+                    if(EstadoCheckbox[r] && buscador.includes(responsive_filter[r].id.toUpperCase())) {
                         modeloMarcado=true;
                         break;
                     }
@@ -318,9 +304,5 @@ menu_bar.addEventListener('click',function(){
         }
         }
         div_filtros.style.display='none'
-    }        
-})
-
-
-
-            
+    }
+}
