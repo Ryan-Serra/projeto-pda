@@ -636,3 +636,13 @@ input::placeholder{
     text-decoration: none;
     cursor: pointer;
   }
+  #responsive--filtro{ 
+    width: 20%; /* largura desejada */ 
+    height: 1150px; background-color: blue;
+ } 
+ .responsive--img--filtros{ 
+    width: 2.5em;
+    height: 2.5em; 
+    margin-left: .75em; 
+    margin-top: .25em; 
+}
