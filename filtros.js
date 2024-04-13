@@ -80,14 +80,6 @@ busca.addEventListener('keypress', function(event) {
                 (busca_Empresas.includes(procura))
                 ||
                 (busca_titulo.includes(procura))
-                ||
-                (busca_modeloDeCurso.includes(procura))
-                ||
-                (busca_cursosaceitos.includes(procura))
-                ||
-                (busca_setor.includes(procura))
-                ||
-                (busca_areadeestagio.includes(procura))
             ) {
                 if (capa_ps[i]) capa_ps[i].style.display = 'block';
             
