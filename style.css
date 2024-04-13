@@ -80,11 +80,8 @@ table {
     }
    
     
-    .menu_bar{
+    body   .menu_bar{
         display: block;
-        width: 50px;
-        height: 50px;
-        left:40%
     }
    #Container .capa_ps .btn_inscrever{
         bottom:40%;
@@ -153,11 +150,10 @@ table {
         height:  30px;
     }
     
-    .menu_bar{
-        width: 40px;
-        height: 40px;
+    body .menu_bar{
+    
         position: relative;
-        left: 32%;
+        left: 72%;
         top:60%
 
     }
@@ -222,14 +218,7 @@ table {
         width: 30px;
         height:  30px;
     }
-     .menu_bar{
-        width: 40px;
-        height: 40px;
-        position: relative;
-        left: 30%;
-        top:60%
-
-    }
+   
     #modal1,
     #modal2,
     #modal3,
