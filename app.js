@@ -137,7 +137,6 @@ img.src="https://www.svgrepo.com/show/12848/x-symbol.svg"
 img.classList.add("responsive--img--filtros")
 
 var h2_filtro= document.createElement("h2");
-h2_filtro.innerHTML = "Filtros";
 h2_filtro.classList.add("responsive--Texto_filtro--container");
 
 var h3_filtro0= document.createElement("h3");

@@ -176,6 +176,9 @@ table {
         align-content: center;
     }
 
+    .menu_bar::after{
+        filter: blur(5px);
+    }
 }
 
 @media(max-width:376px){
@@ -626,12 +629,40 @@ input::placeholder{
     cursor: pointer;
   }
   #responsive--filtro{ 
-    width: 20%; /* largura desejada */ 
-    height: 1150px; background-color: blue;
+    width: 65%; /* largura desejada */ 
+    height: 55%; 
+    background-color: blue;
+    z-index: 1;
+    position: relative;
+    left: 25%;
+    background-color: var(--corVerde);
+    padding: 0 0 10px 10px;
+    font-family: var(--font);
+    bottom: 150px;
+    box-shadow: 10px 100px 200px black; 
+    transition: box-shadow 0.5s ease-in;
  } 
+
+ #responsive--filtro:hover {
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 1) black solid; /* Sombra final */
+  }
+
  .responsive--img--filtros{ 
-    width: 2.5em;
+    width: 20px;
     height: 2.5em; 
-    margin-left: .75em; 
+    margin-left: 1px; 
     margin-top: .25em; 
+    padding-bottom: 10px;
+}
+
+.responsive--filro_modelodetrabalho {
+    padding:5px 0 5px 0;
+}
+
+.responsive--filtro_Localidade{
+    padding:5px 0 5px 0;
+}
+
+.responsive--filtro_Empresa {
+    padding:5px 0 5px 0;
 }
