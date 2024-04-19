@@ -290,7 +290,7 @@ function filtrar(){
                 } else if (!algumCheckboxMarcado) {
                     capa_ps[j].style.display = 'block'; // Mostrar todas as vagas quando nenhum checkbox estiver marcado
                 } else {
-                    capa_ps[j].style.display = 'none';
+                    capa_ps[j].style.display = 'none'
                 }
             }
         }
