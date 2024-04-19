@@ -63,7 +63,7 @@ busca.addEventListener('keypress', function(event) {
         for (let i = 0; i < Localidade.length; i++) {
             busca_Localidade = removerAcentos(Localidade[i].innerHTML.trim().toUpperCase())
             busca_ModeloTrabalho = removerAcentos(ModeloTrabalho[i].innerHTML.trim().toUpperCase());
-            busca_Empresas = Empresa[i].innerHTML.trim().toUpperCase();
+            busca_Empresas = removerAcentos(Empresa[i].innerHTML.trim().toUpperCase());
             busca_titulo=removerAcentos(titulo_capa[i].innerHTML.trim().toUpperCase())
             busca_modeloDeCurso=removerAcentos(modelodecurso[i].innerHTML.trim( ).toUpperCase())
             busca_cursosaceitos=removerAcentos(cursosaceitos[i].innerHTML.trim( ).toUpperCase())
